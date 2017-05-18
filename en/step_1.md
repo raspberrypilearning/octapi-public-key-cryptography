@@ -1,121 +1,15 @@
-# New project
+# OctaPi: Public Key Cryptography
 
-Each project contains a set of directories for each language, you're set up now with an `en` directory that contains the necessary files to get you going.
+In this resource you will learn about the concepts behind public key cryptography including the concepts of a **public key** and a **private key**. This worksheet gives you the background behind public key cryptography, including some questions to test your understanding and a Python programming challenge.
 
-* [meta.yml](#metayml)
-* [Steps - step_1.md, step_2.md, etc](#steps)
+## The story of Public Key Encryption
 
+In 1976, American mathematicians, Whitfield Diffie and Martin Hellman, published a method of securely exchanging cryptographic keys in public. For many years this was the story of public key cryptography. However, in 1997 GCHQ declassified and published work done in the early 1970s by British mathematicians working for them that showed that the key concepts of public key cryptography had been originally discovered in the UK. Up to that point it had all been kept secret by the UK government.
 
-## meta.yml
+The GCHQ mathematician, James Ellis, first came up with the idea is two papers: [The Possibility of Secure Non-secret Digital Encryption](https://www.gchq.gov.uk/sites/default/files/document_files/CESG_Research_Report_No_3006_0.pdf) (January 1970) and [The Possibility of Secure Non-secret Analogue Encryption](https://www.gchq.gov.uk/sites/default/files/document_files/CESG_Research_Report_No_3007_0.pdf) (May 1970).
 
-The `meta.yml` file sets lots of basic information for the project.
+In 1974, another GCHQ mathematician, Clifford Cocks, described a possible implementation of the "non-secret encryption" technique using prime numbers in his paper [Note on "Non-secret Encryption"](https://www.gchq.gov.uk/sites/default/files/document_files/Cliff%20Cocks%20paper%2019731120.pdf).
 
-``` yml
-title: The title of the project
-hero_image: images/banner.png # The image used on the listing view
-subtitle: Project subtitle # Used on the listing view
-description: Project description # Used on the listing view
-published: false # A boolean - `true` or`false` - that controls whether the project will appear on the listing view
-steps: # A list of all the steps
-  - title: How to get started # Used as the sidebar title for the step
-    duration: 60 # Not used yet
-```
+Finally, the GCHQ mathematician, Malcolm Williamson, described a method of key exchange in January 1974 in his paper [Non-secret Encryption using a Finite Field"](https://www.gchq.gov.uk/sites/default/files/document_files/nonsecret_encryption_finite_field_0.pdf). This is very similar the the Diffie-Hellmen technique of key exchange but predates it by several years.
 
-## Steps
-
-* [Links](#links)
-* [Resources](#resources)
-* [Images](#images)
-* [Challenges](#challenges)
-* [Definitions](#definitions)
-* [Hints](#hints)
-* [Collapsed ingredients](#collapsed-ingredients)
-
-Project steps are written in the [Kramdown](https://kramdown.gettalong.org/) variety of markdown. There is a [quick reference guide](https://kramdown.gettalong.org/quickref.html) and [full syntax documentation](https://kramdown.gettalong.org/syntax.html). A [custom kramdown extension](https://github.com/RaspberryPiFoundation/kramdown_rpf) is used for hints, challenges & collapsed ingredients.
-
-### Links, resources & images
-
-See [kramdown documentation](https://kramdown.gettalong.org/quickref.html#links-and-images) for more details.
-
-#### Links
-
-A [link](http://kramdown.gettalong.org) to the kramdown homepage.
-
-#### Resources
-
-A [link to a file in the resources directory](resources/worksheet.pdf){:download='filename.pdf'}. The download part will make the file automatically download rather than be rendered in the browser, the filename you'd like the file to be saved with is the second bit after the `=`. The `/slash learning` application will ensure the resource is available.
-
-#### Images
-
-![Banner image](images/banner.png) - the link text becomes the alternative text for the image. The `/slash learning` application will ensure the image is available.
-
-#### Challenges
-
-``` markdown
---- challenge ---
-
-## Challenge: Improving your drum
-
-* Any markdown in here
-* will be parsed as normal
-
---- /challenge ---
-```
-
-
-### Definitions
-
-Definitions can be written using HTML abbreviations, which are a standard part of [kramdown](https://kramdown.gettalong.org/quickref.html#abbreviations)
-
-```
-To do this you might require a variable or a two word definition.
-
-*[variable]: An object that has a name and stores a value.
-
-*[two word]: Definitions are markdown, and can have [links](http://kramdown.gettalong.org) etc
-```
-
-
-### Hints
-
-A header for the hint, and all the html markup for hints will be automatically added.
-
-```
---- hints ---
---- hint ---
-
-Here's a hint of how to do this project.
-
-Any markdown you like within a hint:
-* item 1
-* item 2
-
---- /hint ---
---- hint ---
-Hint 2
-
---- /hint ---
---- hint ---
-
-Hint 3
---- /hint ---
---- hint ---
-Hint 4
---- /hint ---
-
---- /hints ---
-```
-
-### Collapsed ingredients
-
-Set the title and the image from within the `collapse` area. The image must exist in **this** project, not the ingredient.
-
---- collapse ---
----
-title: Downloading and installing the Raspberry Pi software
-image: images/scratch.png
----
-
-[[[generic-scratch-new-project]]]
-
---- /collapse ---
+If you are interested in knowing more about the topic, have a look at _Applied Cryptography - Protocols, Algorithms, and Source Code in C_, Bruce Schneier, Wiley, ISBN 978-1-119-09672-6. Note that the story of public key cryptography in this book pre-dates the GCHQ announcement in 1997.

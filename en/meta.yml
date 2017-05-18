@@ -1,10 +1,32 @@
 title: rpi-python-octapi-public-key-cryptography
 hero_image: images/banner.png
-subtitle: rpi-python-octapi-public-key-cryptography subtitle
-description: rpi-python-octapi-public-key-cryptography description
+subtitle: Learn about the concepts behind public key cryptography
+description: Learn about the concepts behind public key cryptography
 original_url: https://codeclubprojects.org/en-GB/scratch/rock-band
 theme: cc-prototype
 published: false
 steps:
-  - title: Step one
+  - title: Introduction
+    duration: 60
+  - title: What you will need
+    duration: 60
+  - title: Step one - What is public key cryptography?
+    duration: 60
+  - title: Step two - How can a key be public?
+    duration: 60
+  - title: Step three - How are keys chosen?
+    duration: 60
+  - title: Challenge - Finding factors
+    duration: 60
+  - title: Step four - Generating a public key
+    duration: 60
+  - title: Step five - Sharing public keys
+    duration: 60
+  - title: Step six - Spot the weaknesses
+    duration: 60
+  - title: Step seven - Finding prime factors on a single Raspberry Pi
+    duration: 60
+  - title: Step seven - Finding prime factors on the OctaPi
+    duration: 60
+  - title: Step eight - Can I hack with my OctaPi?
     duration: 60
