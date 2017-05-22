@@ -78,6 +78,7 @@ print( str(total) + " seconds" )
 
 
 ```
+--- /hint ---
 --- /hints ---
 
 
