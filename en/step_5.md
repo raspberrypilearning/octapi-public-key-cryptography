@@ -2,7 +2,7 @@
 
 Using public key cryptography is like signing a message with your own __digital signature__. Not only does it prevent unauthorised people from reading your message, it proves that the message originates from the person who claims to have sent it.
 
-The **public key** can be a number which meets the following criteria:
+The **public key** can be any number which meets the following criteria:
 
 - It is chosen using a random source of information so that it is unpredictable.
 - It comprises the product of two numbers, A * B = AB, where A and B are both **prime** (each only divisible by themselves and 1).
