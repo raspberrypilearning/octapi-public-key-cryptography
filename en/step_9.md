@@ -1,8 +1,8 @@
 ## Finding prime factors on a single Raspberry Pi
 
-As you already found out, finding the factors of a number gets much more difficult the larger the number gets. Let's look at running a program to find prime factors of the number, 2396059349, using the processing power of a single Raspberry Pi.
+As you already found out, finding the factors of a number gets much more difficult the larger the number gets. Let's look at running a program to find prime factors of the number `2396059349` using the processing power of a single Raspberry Pi.
 
-1. Download the [code for a stand alone Raspberry Pi](code/factor_standalone.py) and save it onto your Raspberry Pi
+1. Download the [code for a stand alone Raspberry Pi](resources/factor_standalone.py) and save it onto your Raspberry Pi
 
 1. Open a terminal and change to the directory where you saved the code using the `cd` command.
 
@@ -15,7 +15,7 @@ As you already found out, finding the factors of a number gets much more difficu
     ```
 
 ### Explanation
-We are running the Python code and passing it two pieces of data, the most important being the number `2396059349` which is the public key we want to find the factors for.
+We are running the Python code and passing it two pieces of data, the first being the number `2396059349` which is the public key we want to find the factors for.
 
 The code contains a function which searches for a factor using the **square root** of the public key as the starting point. This is a good starting point to use because when selecting the primes to use as the private keys, they should have roughly the same number of digits. As an example, if the two prime numbers chosen to make up a key were `15485863` and `17`, then this would mean that the security strength would not be shared equally amongst the two keys.
 

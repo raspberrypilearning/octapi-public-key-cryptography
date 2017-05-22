@@ -1,6 +1,6 @@
 # So can I now hack with my OctaPi?
 
-In short, no! Whilst you have demonstrated that using the OctaPi with multiple cores working in parallel can complete this kind of task much more quickly than a single processor working on the task, you still can't use it to break encryption in practice. The 'large' prime number `2396059349` we found the factors for in the demonstration is actually not very large compared to the size of the primes actually used in public key cryptography. For example the numbers used may be as large as 2048 bits (that's 617 digits!) Even using the power of multiple cores, calculating the prime factors has not been achieved - there was even once a $200,000 USD prize offered for anyone who could achieve it!
+In short, no! Whilst you have demonstrated that using the OctaPi with multiple cores working in parallel can complete this kind of task much more quickly than a single processor working on the task, you still can't use it to break encryption in practice. The 'large' prime number `2396059349` we found the factors for in the demonstration is actually not very large compared to the size of the primes actually used in public key cryptography. For example, the numbers used may be as large as 2048 bits (that's 617 digits!) Even using the power of multiple cores, calculating the prime factors has not been achieved - there was even once a $200,000 USD prize offered for anyone who could achieve it!
 
 Take a look at this YouTube video to find out why you can't use your OctaPi to break RSA or other forms of public key encryption.
 
