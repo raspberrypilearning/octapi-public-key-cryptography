@@ -5,17 +5,17 @@ Using public key cryptography is like signing a message with your own __digital 
 The **public key** can be any number which meets the following criteria:
 
 - It is chosen using a random source of information so that it is unpredictable.
-- It comprises the product of two numbers, A * B = AB, where A and B are both **prime** (each only divisible by themselves and 1).
-- The product AB is a large number and therefore has many digits.
+- It is the product of two numbers, A * B = AB, and A and B are both **prime** numbers (each only divisible by itself and 1).
+- This product AB is a large number and therefore has many digits.
 - A and B are used as private keys and are **factors** of the public key, AB.
 
 We can see how this works in practice as follows:
 
-Suppose we ignore the requirement for the **public key** to be a large number for the time being and use small randomly chosen **prime** numbers, A=2 and B=5. This makes the **public key**, AB = 2 * 5 = 10. It is easy to work out that A=2 and B=5 are the only possible **factors** of 10.
+Suppose we ignore the requirement for the **public key** to be a large number for now and use small randomly chosen **prime** numbers, A=2 and B=5. This makes the **public key** AB = 2 * 5 = 10. It is easy to work out that A=2 and B=5 are the only possible **factors** of 10.
 
 If we use A=2 and B=5 as the **private keys**, AB = 10 becomes the **public key**. Let's assume Alice uses A=2 as her **private key** and Bob uses B=5 as his.
 
-An attacker intercepts the message sent from Bob to Alice. The attacker can find out that the **public key** was 10 because it will need to be sent along with the encrypted message, and the attacker may even know that the **private keys** are the **factors** of the **public key**.
+Now imagine an attacker intercepts the message sent from Bob to Alice. The attacker can find out that the **public key** was 10 because it will need to be sent along with the encrypted message, and the attacker may even know that the **private keys** are the **factors** of the **public key**.
 
 So from the attacker's point of view, to break the cryptography they will need to find A and B by finding the factors of the **public key**, AB = 10:
 
@@ -23,15 +23,15 @@ So from the attacker's point of view, to break the cryptography they will need t
 10 = A * B
 ```
 
-Because we have chosen small value **private keys**, A=2 and B=5, in this example, it is very easy for the attacker to figure out what these **private keys** are. All they have to do is try multiplying all possible values of `A` and `B` and see which multiplication results in the value 10. In this example, the attacker could probably even do it in their head!
+Because we have chosen small value **private keys**, A=2 and B=5, in this example, it is very easy for the attacker to figure out what these **private keys** are. All they have to do is multiply all possible values of `A` and `B` and see which multiplication results in the value 10. In this example, the attacker could probably even do it in their head!
 
-However, if the **public key** was a larger number, it would be considerably more difficult to work out the **factors**. Essentially, this is what protects the message: a hard maths problem.
+However, if the **public key** were a larger number, it would be considerably more difficult to work out the **factors**. Essentially, this is what protects the message: a hard maths problem.
 
 How easy would it be to find the two **factors** using a computer program?
 
 ## Finding factors
 
-Remember that one of the criteria for a suitable public key is that it must be a number which is the product of two **prime** numbers, or to put it another way, a number which has only two **factors**.
+Remember that one of the criteria for a suitable public key is that it must be a number which is the product of two **prime** numbers. To put it another way, a public key has to be a number with only two **factors**, meaning dividing the number by any number besides the two factors will leave a remainder.
 
 ### Test your understanding
 
