@@ -1,6 +1,6 @@
 # OctaPi: Public Key Cryptography
 
-In this resource you will learn about the concepts behind public key cryptography (PKC), including the concepts of a **public key** and a **private key**. It will give you information about the background of PKC, and test your understanding with questions and a Python programming challenge. You will then use the OctaPi to find prime factors with a brute force method.
+In this resource you will learn about the concepts behind public key cryptography (PKC), including the concepts of a **public key** and a **private key**. It will give you information about the background of PKC, and test your understanding with questions and a Python programming challenge. You will then use the OctaPi to find prime factors with a brute-force method.
 
 ## The story of Public Key Encryption
 
