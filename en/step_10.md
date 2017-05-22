@@ -2,9 +2,9 @@
 
 To complete this section of the resource, you will need to have [built an OctaPi](rpi-python-build-an-octapi)
 
-1. Download the [code for the OctaPi](resources/factor_efficient.py) and save it onto your OctaPi client machine
+1. Download the [code for the OctaPi](resources/factor_efficient.py) and save it onto your OctaPi client machine.
 
-1. With your OctaPi, OctaPi client machine and wireless router fully powered up and connected, open a terminal on the OctaPi client machine
+1. When your OctaPi, the OctaPi client machine, and the wireless router are fully powered up and connected, open a terminal on the OctaPi client machine.
 
     ![Open a terminal](images/terminal.png)
 
@@ -16,6 +16,6 @@ To complete this section of the resource, you will need to have [built an OctaPi
 
 ### Explanation
 
-The OctaPi program follows the same principle as the stand alone program, searching for the prime factors in chunks. The big difference is that **dispy** is used to distribute the chunks between the cores on the OctaPi. Searching through each chunk is considered a **job**, and as each job is completed (but unsuccessful in finding the prime factors), another job is fed to the cluster.
+The OctaPi program follows the same principle as the stand-alone program by searching for the prime factors in chunks. The big difference is that **dispy** is used to distribute the chunks between the processors of the OctaPi. Searching through each chunk is considered a **job**, and once a job is completed, if the prime factors were not found, another job is fed to the processor.
 
-You can imagine the job of the OctaPi like sorting through a big pile of mail looking for a particular letter. The post is divided up into equally sized piles. Each processor is given a pile to look through, and when it finishes searching through that pile, it receives another pile to check. It is easy to see that the job is finished much more quickly by having multiple processors looking through piles in parallel than it is to have one processor looking through the piles one after another.
+You can imagine the program running on the OctaPi like sorting through a big pile of mail looking for a particular letter. The post is divided up into equally-sized piles, the jobs. Each processor is given a pile to look through, and when it finishes searching through that pile, it receives another pile to check. It is easy to see why the program runs much more quickly with multiple processors looking through piles in parallel than it does when one processor looks through the piles one after another.
