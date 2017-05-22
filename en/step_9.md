@@ -1,18 +1,22 @@
-# Spot the weaknesses
+## Finding prime factors on a single Raspberry Pi
 
-Imagine you are an adversary trying to read the encrypted message that Alice sent to Bob. You already have the message and the public key.
+As you already found out, finding the factors of a number gets much more difficult the larger the number gets. Let's look at running a program to find prime factors of the number, 2396059349, using the processing power of a single Raspberry Pi.
 
-**Question 3** - What information do you need to obtain to try to decrypt the message?
+1. Download the [code for a stand alone Raspberry Pi](code/factor_standalone.py) and save it onto your Raspberry Pi
 
-**Question 4** - How could you try to obtain this information?
+1. Open a terminal and change to the directory where you saved the code using the `cd` command.
 
-### Answers
+    ![Open a terminal](images/terminal.png)
 
-**Question 3** - To be able to decrypt the message, you must find out Bob's private key.
+1. Run the code by typing the following command:
 
-**Question 4** - You could try to obtain this information in two ways:
+    ```bash
+    python3 factor_standalone.py 2396059349 1000
+    ```
 
-- Break into where Bob stores his private key and steal it. This might involve both physical security measures (guards, CCTV, locked rooms) and electronic security measures. This may work, however it is likely that Bob will find out if you steal his key and that he and Alice will generate a different set of keys for future messages.
-- Try to work out both private keys by searching for the two prime factors of the public key using a program. Bob will not know his key has been compromised and you can continue to read future messages undetected. As a bonus, this method also simultaneously finds Alice's key too, so you will be able to read messages sent by Bob to Alice.
+### Explanation
+We are running the Python code and passing it two pieces of data, the most important being the number `2396059349` which is the public key we want to find the factors for.
 
-In order to obtain Bob's key by working out the prime factors of the public key, you will need to launch a **brute force attack**. This means you will try all of the possible solutions in turn until you find one which works.
+The code contains a function which searches for a factor using the **square root** of the public key as the starting point. This is a good starting point to use because when selecting the primes to use as the private keys, they should have roughly the same number of digits. As an example, if the two prime numbers chosen to make up a key were `15485863` and `17`, then this would mean that the security strength would not be shared equally amongst the two keys.
+
+The search is done in "chunks" (blocks of primes), where the size of the chunk is based on 1) the number of digits in the public key and 2) the scale factor, which was the `1000` parameter we passed to the script when we ran it. The program will take each chunk one at a time and search for a matching pair of prime factors. This program searches in chunks to mimic the way the OctaPi will approach the problem when running the searches in parallel across several processors.

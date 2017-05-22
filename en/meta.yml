@@ -20,11 +20,9 @@ steps:
     duration: 60
   - title: Step four - Generating a public key
     duration: 60
-  - title: Step five - Sharing public keys
+  - title: Step five - Spot the weaknesses
     duration: 60
-  - title: Step six - Spot the weaknesses
-    duration: 60
-  - title: Step seven - Finding prime factors on a single Raspberry Pi
+  - title: Step six - Finding prime factors on a single Raspberry Pi
     duration: 60
   - title: Step seven - Finding prime factors on the OctaPi
     duration: 60

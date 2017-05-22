@@ -1,4 +1,4 @@
-## How can a key be public?
+# How can a key be public?
 
 With the Caesar Cipher, it is crucial that the key remains secret. A public key cryptographic system consists of a **public key** and a matched (but non identical) pair of **private keys**. The private keys are known only to the participants, each participant holds one of the private keys. The public key is created using the matched pair of private keys, and can be known by anyone.
 
@@ -12,11 +12,9 @@ Here's how it works:
 - Bob receives Alice's encrypted message. He has the public key AB and his private key B. Bob knows that AB = A * B, so he can work out A (by calculating A = AB / B) and decrypt the message from Alice.
 
 ### Test your understanding
-1. Why is this an **asymmetric** encryption algorithm?
-1. Why don't Alice and Bob just each use private keys?
-1. Why is the public key even needed?
 
-### Answers to Test your understanding
+**Why is this an asymmetric encryption algorithm?**
+
 
 --- collapse ----
 ---
@@ -24,8 +22,31 @@ title: Answer
 image: images/https.png
 ---
 
-- Answer: Bob's and Alice's private keys are different. The private key used to perform the encryption is not the same as the private key held by the person decrypting the information.
-- Answer: Alice's key and Bob's key are not the same. If Alice used a private key to encrypt the data without the existence of a shared public key, it would not be unlockable with Bob's private key. Both Bob's key and the public key together must be known for Bob to be able to decrypt the message, because Bob needs both his key and the public key to be able to decrypt the message.
-- Answer: Alice encrypts the message with her private key to prove she is the sender, and Bob reads the message using his private key, which is the only way of decrypting the message, thus proving he is the intended recipient. This is only possible with the addition of a shared public key.
+Bob's and Alice's private keys are different. The private key used to perform the encryption is not the same as the private key held by the person decrypting the information.
+
+--- /collapse ---
+
+**Why don't Alice and Bob just each use private keys?**
+
+
+--- collapse ----
+---
+title: Answer
+image: images/https.png
+---
+
+Alice's key and Bob's key are not the same. If Alice used a private key to encrypt the data without the existence of a shared public key, it would not be unlockable with Bob's private key. Both Bob's key and the public key together must be known for Bob to be able to decrypt the message, because Bob needs both his key and the public key to be able to decrypt the message.
+
+--- /collapse ---
+
+**Why is the public key even needed?**
+
+
+--- collapse ----
+---
+title: Answer
+image: images/https.png
+---
+Alice encrypts the message with her private key to prove she is the sender, and Bob reads the message using his private key, which is the only way of decrypting the message, thus proving he is the intended recipient. This is only possible with the addition of a shared public key.
 
 --- /collapse ---

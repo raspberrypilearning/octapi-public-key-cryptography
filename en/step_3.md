@@ -31,7 +31,7 @@ A message is encrypted using the key, and the receiver uses the same key to decr
 
 ### Test your understanding
 
-1. Does the Caesar Cipher use a public or a private key?
+***Does the Caesar Cipher use a public or a private key?***
 
 --- collapse ---
 ---
@@ -39,11 +39,11 @@ title: Answer
 image: images/https.png
 ---
 
-1. Answer: The key must be kept private, otherwise anyone could decrypt the information.
+The key must be kept private, otherwise anyone could decrypt the information.
 
 --- /collapse ---
 
-1. Does it offer any authentication?
+**Does the Caesar Cipher offer any authentication?**
 
 --- collapse ---
 ---
@@ -51,11 +51,11 @@ title: Answer
 image: images/https.png
 ---
 
-1. Answer: No - anyone could send an encrypted message if they knew the key, and there is no way of proving who the message originated from.
+No - anyone could send an encrypted message if they knew the key, and there is no way of proving who the message originated from.
 
 --- /collapse ---
 
-1. If you intercepted a message encrypted using a Caesar Cipher, how would you go about decrypting it without knowing the key?
+**If you intercepted a message encrypted using a Caesar Cipher, how would you go about decrypting it without knowing the key?**
 
 --- collapse ---
 ---
@@ -63,6 +63,6 @@ title: Answer
 image: images/https.png
 ---
 
-1. Answer: Try all possible keys (there are only 25) until you found the correct one. This is known as a brute force attack.
+Try all possible keys (there are only 25) until you found the correct one. This is known as a brute force attack.
 
 --- /collapse ---
