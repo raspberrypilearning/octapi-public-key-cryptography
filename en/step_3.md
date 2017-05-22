@@ -6,8 +6,7 @@ Although you might not realise it, you probably use public key cryptography on a
 
 This small padlock means that when you communicate with the web page, the information sent by you is only able to be read by that web page, and the information it sends back is only able to be read by you. The website uses **public key cryptography** to keep your information secure. Public key cryptography provides two useful properties - __encryption__ (preventing unauthorised access to the data) and __authentication__ (proving the person sending or receiving is who they claim to be).
 
-### Question
-Why did GCHQ keep the discovery of public key cryptography secret in the 1970s?
+**Why did GCHQ keep the discovery of public key cryptography secret in the 1970s?**
 
 --- collapse ---
 ---
@@ -31,7 +30,7 @@ A message is encrypted using the key, and the receiver uses the same key to decr
 
 ### Test your understanding
 
-***Does the Caesar Cipher use a public or a private key?***
+**Does the Caesar Cipher use a public or a private key?**
 
 --- collapse ---
 ---
