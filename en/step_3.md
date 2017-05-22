@@ -26,7 +26,7 @@ In the Caesar Cipher method, a numerical key is used to encrypt a message. The l
 
   ![Caesar cipher example](images/messages-wheel-eg.png)
 
-A message is encrypted using the key, and the receiver uses the same key to decrypt the message. The key needs to be agreed on by both sides beforehand and kept secret.
+A message is encrypted using the key, and the receiver uses the same key to decrypt the message. The key needs to be agreed on by both sides beforehand and must be kept secret.
 
 ### Test your understanding
 
@@ -50,7 +50,7 @@ title: Answer
 image: images/https.png
 ---
 
-No - anyone could send an encrypted message if they knew the key, and there is no way of proving who created the message.
+No - anyone could send an encrypted message if they knew the key, and there is no way of proving who created a message.
 
 --- /collapse ---
 
