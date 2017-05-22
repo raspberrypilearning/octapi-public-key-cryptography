@@ -33,12 +33,15 @@ How easy would it be to find the two **factors** using a computer program?
 
 Remember that one of the criteria for a suitable public key that we are using is that it is a number which is the product of two **prime** numbers, or to put it another way, a number which has only two **factors**.
 
-### Test your understanding 3
+### Test your understanding
+
 1. If you were given the number 12 and asked to find out its factors, what strategy might you take?
 1. Does the number 12 meet the criteria of only having two factors?
 1. Can you generalise your strategy from question 1, so that if you were given the number `n` and asked to find out its factors, you could describe to someone how to do it?
 
-### Answers to Test your understanding 3
+### Answers
+
+
 1. Try to divide 12 by all the numbers between 2 and 11, and write down which ones it is divisible by.
 1. No. The number 12 can be factorised as 12 = 2 * 6 and 12 = 3 * 4.
 1. You may generalise your previous rule as "Try to divide n by all the numbers between 2 and n-1, and write down which ones it is divisible by." In actual fact, you don't need to test up to n-1, you can stop at √n. Why not try [this activity](https://nrich.maths.org/7520) to learn about the Sieve of Eratosthenes to see why!
