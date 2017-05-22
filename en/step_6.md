@@ -30,7 +30,7 @@ while test_number < public_key:
 
 --- /hint ---
 --- hint ---
-A solution can be found [here](resources/brute_force_factor.py)
+A solution can be found [here](resources/brute_force_factor.py).
 --- /hint ---
 
 --- /hints ---
@@ -45,7 +45,7 @@ Use `input()` to allow the user to type a number in, and convert the input into 
 --- /hint ---
 
 --- hint ---
-A solution can be found [here](resources/brute_force_factor2.py)
+A solution can be found [here](resources/brute_force_factor2.py).
 --- /hint ---
 
 --- /hints ---
