@@ -7,7 +7,7 @@ The **public key** can be any number which meets the following criteria:
 - It is chosen using a random source of information so that it is unpredictable.
 - It is the product of two numbers, A * B = AB, and A and B are both **prime** numbers (each only divisible by itself and 1).
 - This product AB is a large number and therefore has many digits.
-- A and B are used as private keys and are **factors** of the public key, AB.
+- A and B are used as private keys and are the only **factors** of the public key AB.
 
 We can see how this works in practice as follows:
 
