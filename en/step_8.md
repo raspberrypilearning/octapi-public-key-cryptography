@@ -16,7 +16,6 @@ Imagine you are an adversary trying to read the encrypted message that Alice sen
 --- collapse ---
 ---
 title: Answer
-image: images/https.png
 ---
 
 To be able to decrypt the message, you must find out Bob's private key.
@@ -29,7 +28,6 @@ To be able to decrypt the message, you must find out Bob's private key.
 --- collapse ---
 ---
 title: Answer
-image: images/https.png
 ---
 
 You could try to obtain this information in two ways:

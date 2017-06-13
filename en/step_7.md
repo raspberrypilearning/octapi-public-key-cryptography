@@ -16,6 +16,8 @@ To reiterate, in order to generate the public key, two prime numbers A and B nee
 
 No. It is important that the prime numbers are _randomly chosen_ - and randomness is something human beings are very bad at! In fact, many weaknesses in encryption are caused by the behaviour of human beings rather than the failure of technology. Let's investigate why randomness in a computer system (known as *entropy*) is important.
 
+### Question 1
+
 You have probably used some Python code similar to this before to generate a random integer:
 
 ```python
@@ -23,15 +25,13 @@ import random
 print( random.randint(1, 10000) )
 ```
 
-### Question 1
-
 If we ask Python to generate large random numbers until one is prime, is that good enough to use as a private key?
 
 ### Investigation
 
-1. Open Python 3 and create a new file. Save your file as `random_seed.py`
+- Open Python 3 and create a new file. Save your file as `random_seed.py`
 
-1. Type in the following code which generates 10 random numbers between 1 and 10000
+- Type in the following code which generates 10 random numbers between 1 and 10000
 
     ```Python
     import random
@@ -42,12 +42,11 @@ If we ask Python to generate large random numbers until one is prime, is that go
         print( random.randint(1, 10000) )
     ```
 
-1. Run your program by pressing F5 and look at the output. Then, run your program again. What do you see?
+- Run your program by pressing F5 and look at the output. Then, run your program again. What do you see?
 
 --- collapse ---
 ---
 title: Answer
-image: images/https.png
 ---
 
 Python's `randint` function generates numbers that appear random, but we added a starting number, or **seed**. If this seed is unchanged each time the code is run, the same sequence of numbers in the same order will always be generated. Using this function to choose our primes is not cryptographically secure, because if an attacker can determine the seed we used, they can simply use it to regenerate all the "random" numbers that our code generates.
@@ -61,14 +60,13 @@ So why can't we just use this function but not specify a seed?
 
 ### Investigation
 
-1. Delete the line `random.seed(12345)`.
+- Delete the line `random.seed(12345)`.
 
-1. Run the program multiple times and compare the output. What happens now?
+- Run the program multiple times and compare the output. What happens now?
 
 --- collapse ---
 ---
 title: Explanation
-image: images/https.png
 ---
 Although the numbers we have generated now _appear_ to be different each time, they are still not genuinely random. This is because the algorithm used to generate the prime numbers still needs a seed - the seed still exists, we just don't know what it is! If we don't specify one, the seed is chosen in the background, usually based on a changing value such as the current time. This explains why each time we run the program the numbers are different and apparently random. The problem remains the same however: an attacker could still work out what the seed was, and regenerate the same random numbers we did with its help.
 

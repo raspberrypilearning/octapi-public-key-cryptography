@@ -2,15 +2,15 @@
 
 To complete this section of the resource, you will need to have [built an OctaPi](rpi-python-build-an-octapi).
 
-1. Download the [code for the OctaPi](resources/factor_efficient.py) and save it onto your OctaPi client machine.
+- Download the [code for the OctaPi](resources/factor_efficient.py) and save it onto your OctaPi client machine.
 
-1. When your OctaPi, the OctaPi client machine, and the wireless router are fully powered up and connected, open a terminal on the OctaPi client machine.
+- When your OctaPi, the OctaPi client machine, and the wireless router are fully powered up and connected, open a terminal on the OctaPi client machine.
 
     ![Open a terminal](images/terminal.png)
 
-1. Change to the directory where you saved the code using the `cd` command.
+- Change to the directory where you saved the code using the `cd` command.
 
-1. Run the code by typing the following command:
+- Run the code by typing the following command:
 
     ```bash
     python3 factor_efficient.py 2396059349 1000

@@ -2,13 +2,13 @@
 
 As you already learned, finding the factors of a number becomes more difficult the larger the number is. Let's look at running a program to find prime factors of the number `2396059349` using the processing power of a single Raspberry Pi.
 
-1. Download the [code for a stand-alone Raspberry Pi](resources/factor_standalone.py) and save it onto your Raspberry Pi.
+- Download the [code for a stand-alone Raspberry Pi](resources/factor_standalone.py) and save it onto your Raspberry Pi.
 
-1. Open a terminal and change to the directory where you saved the code using the `cd` command.
+- Open a terminal and change to the directory where you saved the code using the `cd` command.
 
     ![Open a terminal](images/terminal.png)
 
-1. Run the code by typing the following command:
+- Run the code by typing the following command:
 
     ```bash
     python3 factor_standalone.py 2396059349 1000

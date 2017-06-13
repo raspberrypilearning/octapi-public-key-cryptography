@@ -11,7 +11,6 @@ This padlock means that when you communicate with the web page, the information 
 --- collapse ---
 ---
 title: Answer
-image: images/https.png
 ---
 
 GCHQ is part of the team which protects the UK, along with law enforcement and other intelligence agencies. They defend government systems from attack, provide support to the Armed Forces and strive to keep the public safe, in real life and online. In the 1970s this involved creating cryptographic systems to protect government and military communications, and to be effective, the systems had to remain secret. When James Ellis died in 1997, GCHQ decided to reveal the story of how public key cryptography was developed. Today, GCHQ works with industry, academia, and other parts of government to improve cybersecurity in the UK by promoting development of new cryptographic techniques, as much as possible without using secrecy.
@@ -35,7 +34,6 @@ A message is encrypted using the key, and the receiver uses the same key to decr
 --- collapse ---
 ---
 title: Answer
-image: images/https.png
 ---
 
 The key must be kept private, otherwise anyone could decrypt the information.
@@ -47,7 +45,6 @@ The key must be kept private, otherwise anyone could decrypt the information.
 --- collapse ---
 ---
 title: Answer
-image: images/https.png
 ---
 
 No - anyone could send an encrypted message if they knew the key, and there is no way of proving who created a message.

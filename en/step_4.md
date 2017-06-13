@@ -19,7 +19,6 @@ Here's how it works:
 --- collapse ----
 ---
 title: Answer
-image: images/https.png
 ---
 
 Bob's and Alice's private keys are different. The private key used to perform the encryption is not the same as the private key held by the person decrypting the information.
@@ -32,7 +31,6 @@ Bob's and Alice's private keys are different. The private key used to perform th
 --- collapse ----
 ---
 title: Answer
-image: images/https.png
 ---
 
 Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, it would not be unlockable by Bob's private key. Bob needs both his key and the public key to be able to decrypt the message.
@@ -45,7 +43,6 @@ Alice's key and Bob's key are not the same. If Alice used her private key to enc
 --- collapse ----
 ---
 title: Answer
-image: images/https.png
 ---
 Alice encrypts the message with her private key to prove she is the sender. Bob reads the message using his private key, which is the only way of decrypting the message, thus proving he is the intended recipient. This proof of identity, also called authentication, is only possible with the addition of a shared public key.
 
