@@ -78,9 +78,4 @@ If you are interested in reading more about this topic, you can research the **M
 
 Because the amount of randomness (known as **entropy**) is extremely important when choosing prime numbers to use as private keys, a public key encryption algorithm must use a cryptographically secure source of random numbers. For example, Python can use the method `os.urandom()` in the `os` library.
 
-There are many ways in which **entropy** can be increased in a computer system - here are just a few:
-- Using operating system sources. Examples include the system time, keyboard strokes, and mouse movements.
-- Using radioactive decay, which is the decay of an atom's nucleus from one element to another. As decay events happen randomly, we can use the time difference between the events to generate random seeds.
-- Using semiconductor junction noise. Semiconductors are used in many electronic components and devices (including computers). A diode for example is a type of component that conducts electricity in only one direction using a junction between two types of semiconductor material. When current is flowing, noise is generated which can be sampled in amplitude and used as a random seed. This is how a so-called _Entropy Key_ works.   
-
-A lack of entropy is a cryptographic challenge for securing Internet of Things-enabled devices, because sensors and actuators used in real-world applications cannot access sources of randomness such as the ones listed above.
+[[[generic-theory-what-is-entropy]]]
