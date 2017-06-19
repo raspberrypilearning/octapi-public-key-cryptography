@@ -134,7 +134,7 @@ def find_factor(semi_prime, lower, upper):
                 
                 # try this prime to see if it is a factor
                 if (factor1 * factor2 == semi_prime):
-#                    print ('%i * %i = %i' % (factor1, factor2, factor1*factor2))
+                    #print ('%i * %i = %i' % (factor1, factor2, factor1*factor2))
                     return (factor1, factor2)
 
         lower = lower + 2    # skip even factors because they can't be prime
