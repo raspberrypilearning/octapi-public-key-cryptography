@@ -31,7 +31,32 @@
 
   --- /hint ---
   --- hint ---
-  A solution can be found [here](resources/brute_force_factor.py).
+  [Download the solution](resources/brute_force_factor.py).
+
+
+    ```python
+    public_key = 28
+
+  # Store the discovered factors in this list
+  factors = []
+
+  # Begin testing at 2
+  test_number = 2
+
+  # Loop through all numbers from 2 up until the public_key number
+  while test_number < public_key:
+
+      # If the public key divides exactly into the test_number, it is a factor
+      if public_key % test_number == 0:
+          factors.append(test_number)
+
+      # Move on to the next number
+      test_number += 1
+
+  # Print the result
+  print(factors)
+  ```
+
   --- /hint ---
 
   --- /hints ---
@@ -48,31 +73,11 @@
   --- hint ---
   [Download the solution](resources/brute_force_factor2.py).
 
+  At the start of your program, change the value of the variable `public_key` to be an integer input from the user.
+
   ```python
-  public_key = 28
-
-# Store the discovered factors in this list
-factors = []
-
-# Begin testing at 2
-test_number = 2
-
-# Loop through all numbers from 2 up until the public_key number
-while test_number < public_key:
-
-    # If the public key divides exactly into the test_number, it is a factor
-    if public_key % test_number == 0:
-        factors.append(test_number)
-
-    # Move on to the next number
-    test_number += 1
-
-# Print the result
-print(factors)
-```
-  --- /hint ---
-
-  --- /hints ---
+  public_key = int(input("Enter a number: "))
+  ```
 
 
 
@@ -82,7 +87,24 @@ print(factors)
 
   --- hints ---
   --- hint ---
-  Add the part from the [timer code](resources/timer_code.py) which starts the timer before your brute force factoring program, and put the code which ends the timer afterwards.
+  Here is the timer code. Add the part from this code which starts the timer **before** your brute force factoring program, and put the code which ends the timer afterwards. [Download this code](resources/timer_code.py)
+
+    ```python
+    from time import time
+
+    # Start the timer
+    start = time()
+
+    # Run some example code
+    for i in range(1000):
+        print("Heya")
+
+    # Stop the timer
+    end = time()
+    total = end - start
+    print( str(total) + " seconds" )
+
+    ```
 
   --- /hint ---
   --- hint ---
