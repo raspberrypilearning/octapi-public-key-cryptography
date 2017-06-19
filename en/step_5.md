@@ -40,7 +40,7 @@ We have put these into pairs to illustrate four possible private key combination
 
 The two private keys of 2 and 5 are held by Alice and Bob. Alice can encrypt a message with her private key, and send the public key with the message to Bob. Bob then uses the combination of the public key and his private key to work out the key Alice used to encrypt her message - `10 / 5 = 2`. Bob can then decrypt the message. You can try this out in the interactive example below.
 
-***I will put an embedded trinket code here, just awaiting permission**
+<iframe src="https://trinket.io/embed/python/bf71e29704" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 [Download the code](resources/pkc_caesar.py)
 
