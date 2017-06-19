@@ -29,20 +29,9 @@ If we ask Python to generate large random numbers until one is prime, is that go
 
 ### Investigation
 
-- Open Python 3 and create a new file. Save your file as `random_seed.py`
+<iframe src="https://trinket.io/embed/python/cb4e94f1b4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-- Type in the following code which generates 10 random numbers between 1 and 10000
-
-    ```Python
-    import random
-
-    random.seed(12345)
-
-    for i in range(10):
-        print( random.randint(1, 10000) )
-    ```
-
-- Run your program by pressing F5 and look at the output. Then, run your program again. What do you see?
+- Run the program by pressing F5 and look at the output. Then clear the output and run the program again. What do you see?
 
 --- collapse ---
 ---
