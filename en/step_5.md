@@ -27,42 +27,21 @@ Because we have chosen small value **private keys**, A=2 and B=5, in this exampl
 
 However, if the **public key** were a larger number, it would be considerably more difficult to work out the **factors**. Essentially, this is what protects the message: a hard maths problem.
 
-How easy would it be to find the two **factors** using a computer program?
+## Example: Choosing public keys to use with the Caesar Cipher
+The Caesar Cipher has 25 possible keys which represent the number of places each letter of the alphabet is transposed to generate the cipher text. Of these,
+the following numbers are prime (only divisible by itself and 1).
 
-## Finding factors
+- [ 2, 5 ]
+- [ 7, 11 ]
+- [ 13, 17 ]
+- [ 19, 23 ]
 
-Remember that one of the criteria for a suitable public key is that it must be a number which is the product of two **prime** numbers. To put it another way, a public key has to be a number with only two **factors**, meaning dividing the number by any number besides the two factors will leave a remainder.
+We have put these into pairs to illustrate four possible private key combinations which could be used with the Caesar Cipher. Supposing we chose the first pair in this list, `[2, 5]`, we would calculate the public key by multiplying the two primes together - `2 * 5 = 10`. The public key for this pair is 10.
 
-### Test your understanding
+The two private keys of 2 and 5 are held by Alice and Bob. Alice can encrypt a message with her private key, and send the public key with the message to Bob. Bob then uses the combination of the public key and his private key to work out the key Alice used to encrypt her message - `10 / 5 = 2`. Bob can then decrypt the message. You can try this out in the interactive example below.
 
-**If you were given the number 12 and asked to find out its factors, what strategy would you take?**
+***I will put an embedded trinket code here, just awaiting permission**
 
---- collapse ---
----
-title: Answer
----
+[Download the code](resources/pkc_caesar.py)
 
-Try to divide 12 by all the numbers between 2 and 11, and write down which ones it is divisible by.
---- /collapse ---
-
-
-**Does the number 12 meet the criteria of only having two factors?**
-
---- collapse ---
----
-title: Answer
----
-
-No. The number 12 can be **factorised** as 12 = 2 * 6 and 12 = 3 * 4.
---- /collapse ---
-
-
-**Can you generalise your strategy for finding factors, so that if you were given the number `n` and asked to find out its factors, you could describe to someone how to do it?**
-
---- collapse ---
----
-title: Answer
----
-
-You may generalise your previous rule as "Try to divide n by all the numbers between 2 and n-1, and write down which ones it is divisible by." In actual fact, you don't need to test up to n-1, you can stop at √n. Why not try [this activity](https://nrich.maths.org/7520) to learn about the Sieve of Eratosthenes to see why!
---- /collapse ---
+Of course, nobody would actually use public key cryptography with the Caesar Cipher - it would be extremely easy for any attacker to work out the factors and therefore the keys used, even without the help of a computer!

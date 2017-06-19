@@ -1,3 +1,43 @@
+## Finding factors
+
+Remember that one of the criteria for a suitable public key is that it must be a number which is the product of two **prime** numbers. To put it another way, a public key has to be a number with only two **factors**, meaning dividing the number by any number besides the two factors will leave a remainder.
+
+### Test your understanding
+
+**If you were given the number 12 and asked to find out its factors, what strategy would you take?**
+
+--- collapse ---
+---
+title: Answer
+---
+
+Try to divide 12 by all the numbers between 2 and 11, and write down which ones it is divisible by.
+--- /collapse ---
+
+
+**Does the number 12 meet the criteria of only having two factors?**
+
+--- collapse ---
+---
+title: Answer
+---
+
+No. The number 12 can be **factorised** as 12 = 2 * 6 and 12 = 3 * 4.
+--- /collapse ---
+
+
+**Can you generalise your strategy for finding factors, so that if you were given the number `n` and asked to find out its factors, you could describe to someone how to do it?**
+
+--- collapse ---
+---
+title: Answer
+---
+
+You may generalise your previous rule as "Try to divide n by all the numbers between 2 and n-1, and write down which ones it is divisible by." In actual fact, you don't need to test up to n-1, you can stop at √n. Why not try [this activity](https://nrich.maths.org/7520) to learn about the Sieve of Eratosthenes to see why!
+--- /collapse ---
+
+How easy would it be to find the two **factors** using a computer program?
+
 # Programming challenge
 
 - Write a Python program that takes the number 28 and prints out all of its factors.
