@@ -1,9 +1,9 @@
 # This code implements the Caesar cipher, but using public key
-# encryption techniques. No one would actually do this,but as
+# encryption techniques. No one would actually do this, but as
 # the Caesar cipher is easy to understand, it's a potentially
 # handy cipher technique in order to explain PKC.
 #
-# Instead of passing the key (amount of shift) privatey through
+# Instead of passing the key (amount of shift) privately through
 # an independent channel, we can pass the public key with the 
 # message. 
 
