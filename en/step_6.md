@@ -121,7 +121,7 @@ How easy would it be to find the two **factors** using a computer program?
 
 
 
-- Experiment (with trial and error) to find the largest number can you give your program before it takes a very long time or crashes.
+- Experiment (by trial and error) to find the largest number can you give your program before it takes a very long time or crashes.
 
 - Add a timer to benchmark how long your code takes to return the answer. Here is some [timer code](resources/timer_code.py), to time how long a loop takes to execute. Can you adapt this code to time how long your script takes to find the factors of a given number?
 
