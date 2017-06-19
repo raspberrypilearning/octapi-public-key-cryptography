@@ -87,7 +87,9 @@
 
   --- hints ---
   --- hint ---
-  Here is the timer code. Add the part from this code which starts the timer **before** your brute force factoring program, and put the code which ends the timer afterwards. [Download this code](resources/timer_code.py)
+  Here is the timer code. Add the part from this code which starts the timer **before** your brute force factoring program, and put the code which ends the timer afterwards. Don't forget to start the timer _after_ you choose a number otherwise the time you spend choosing will be added on to the total time!
+
+  [Download this code](resources/timer_code.py)
 
     ```python
     from time import time
@@ -111,6 +113,7 @@
 
   ```python
   from time import time
+  # Choose the number you wish to find the factors of
 
   # Start the timer
   start = time()
@@ -129,3 +132,5 @@
 
 
 - Run your code and time how long it takes to find the factors of 3-, 5- and 7-digit numbers.
+
+- You could draw a graph to illustrate the relationship between the number of digits in the number and the length of time taken to find the factors.
