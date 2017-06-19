@@ -12,7 +12,7 @@ The problem becomes much easier to solve if you approach it by first choosing tw
 
 To reiterate, in order to generate the public key, two prime numbers A and B need to be selected as the private keys. The public key is the product of the two - AB = A * B.
 
-Generating two private key primes to create a semi-prime public key is much more straightforward than factoring a semi-prime to find out the original two prime numbers. You can run [this program](resources/semi_prime_standalone.py) which does exactly this - you might want to use this to generate some private keys so that you can test them on the OctaPi later.
+Generating two private key primes to create a semi-prime public key is much more straightforward than factoring a semi-prime to find out the original two prime numbers. You can run [this program](resources/semi_prime_standalone.py) which does exactly this - you might want to use it to generate some private keys so that you can test them on the OctaPi later.
 
 ### Can I just choose my favourite prime number as my private key?
 
