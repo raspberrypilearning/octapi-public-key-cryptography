@@ -38,7 +38,7 @@ You may generalise your previous rule as "Try to divide n by all the numbers bet
 
 How easy would it be to find the two **factors** using a computer program?
 
-# Programming challenge
+## Programming challenge
 
 - Write a Python program that takes the number 28 and prints out all of its factors.
 
