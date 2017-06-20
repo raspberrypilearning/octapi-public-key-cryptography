@@ -2,7 +2,7 @@
 
 As you already learned, finding the factors of a number becomes more difficult the larger the number is. Let's look at running a program to find prime factors of the number `2396059349` using the processing power of a single Raspberry Pi.
 
-The program you will run in this section involves a function to test whether a number is prime. We would not expect you to be able to write this code yourself or understand how it works beyond testing whether a number is prime. However, the code is included in case you would like to investigate how it works more thoroughly. The "main" part of the program begins on line 146 and should be accessible to people who have completed the previous parts of this resource. 
+The program you will run in this section involves a function to test whether a number is prime. We do not expect you to be able to write this code yourself, or to understand exactly how it works. However, we have included the code in case you would like to investigate it more thoroughly. The "main" part of the program begins on line 146 and should be accessible to people who have completed the previous parts of this resource. 
 
 - Download the [code for a stand-alone Raspberry Pi](resources/factor_standalone.py) by right-clicking the link. Save it onto your Raspberry Pi.
 
