@@ -118,7 +118,8 @@ How easy would it be to find the two **factors** using a computer program?
   ```python
   public_key = int(input("Enter a number: "))
   ```
-
+  --- /hint ---
+  --- /hints ---
 
 
 - Experiment (by trial and error) to find the largest number can you give your program before it takes a very long time or crashes.
