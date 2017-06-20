@@ -1,4 +1,4 @@
-## How are private keys shared?
+# How are private keys shared?
 
 Prior to the invention of public key cryptography, sharing of private keys needed for encryption was largely done in writing. For example, in World War II a German Enigma operator had to look up each day's settings in a key list which was established beforehand and given to each operator.
 
@@ -6,7 +6,7 @@ Prior to the invention of public key cryptography, sharing of private keys neede
 *Crown Copyright 2017. Image from GCHQ archives.*
 
 
-# Spot the weaknesses
+## Spot the weaknesses
 
 Imagine you are an adversary trying to read the encrypted message that Alice sent to Bob. You already have the message and the public key.
 
