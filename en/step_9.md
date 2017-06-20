@@ -8,7 +8,7 @@ The program you will run in this section involves a function to test whether a n
 
 - Open Python 3 (IDLE)
 
-    [[[rpi-gui-idle-opening]]]
+[[[rpi-gui-idle-opening]]]
 
 - Click `File` > `Open` in IDLE, then browse to the code you just saved
 
@@ -21,15 +21,15 @@ The program you will run in this section involves a function to test whether a n
 ### Explanation
 You will see the following results:
 
-```
+```python
 Attempting factors in range 48949 - 70546, chunk size 21597
 Attempting factors in range 70547 - 92144, chunk size 21597
 90373 * 26513 = 2396059349
 ```
 
-    - The code contains a function which searches for a factor.
-    - We only want to test prime numbers, so a lot of the code is devoted to **primality tests**, which figure out whether a number is prime or not.
-    - The factor search starts at the **square root** of the public key. This is because the factors are likely to have a roughly similar number of digits as the square root. Remember that when selecting prime numbers to use as private keys, it is important that each has roughly the same number of digits as the other. For example, if the two prime numbers chosen to make up a key were `15485863` and `17`, they would not share equal security strength.
-    - The program will take each chunk one at a time and search for a matching pair of prime factors.
-    - This search happens in chunks to mimic the way the OctaPi will approach the problem when running the searches in parallel across several processors.
-    - When the two factors are found, the result is printed. In this case the factors are `90373` and `26513`, which would be the private keys to the original semiprime public key `2396059349`.
+- The code contains a function which searches for a factor.
+- We only want to test prime numbers, so a lot of the code is devoted to **primality tests**, which figure out whether a number is prime or not.
+ - The factor search starts at the **square root** of the public key. This is because the factors are likely to have a roughly similar number of digits as the square root. Remember that when selecting prime numbers to use as private keys, it is important that each has roughly the same number of digits as the other. For example, if the two prime numbers chosen to make up a key were `15485863` and `17`, they would not share equal security strength.
+- The program will take each chunk one at a time and search for a matching pair of prime factors.
+- This search happens in chunks to mimic the way the OctaPi will approach the problem when running the searches in parallel across several processors.
+- When the two factors are found, the result is printed. In this case the factors are `90373` and `26513`, which would be the private keys to the original semiprime public key `2396059349`.
