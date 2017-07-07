@@ -1,0 +1,19 @@
+title: "OctaPi: Public Key Cryptography"
+hero_image: images/banner.png
+description: Learn about the concepts behind public key cryptography
+theme: red
+listed: true
+duration: 3
+ingredient: false
+steps:
+  - title: Introduction
+  - title: What you will need
+  - title: Step one - What is public key cryptography?
+  - title: Step two - How can a key be public?
+  - title: Step three - How are keys chosen?
+  - title: Challenge - Finding factors
+  - title: Step four - Generating a public key
+  - title: Step five - Spot the weaknesses
+  - title: Step six - Finding prime factors on a single Raspberry Pi
+  - title: Step seven - Finding prime factors on the OctaPi
+  - title: Step eight - Can I hack with my OctaPi?
