@@ -3,7 +3,7 @@ hero_image: images/banner.png
 description: Learn about the concepts behind public key cryptography
 original_url: https://codeclubprojects.org/en-GB/scratch/rock-band
 theme: red
-listed: false
+listed: true
 duration: 3
 ingredient: false
 steps:
