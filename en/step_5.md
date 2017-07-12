@@ -1,47 +1,52 @@
-# How are public and private keys chosen?
+## How are public and private keys chosen?
 
-Using public key cryptography is like signing a message with your own __digital signature__. Not only does it prevent unauthorised people from reading your message, it proves that the message originates from the person who claims to have sent it.
+**Public and private keys** are generated in different ways, using different cryptographic systems. But here we can focus on one of the earliest and simplest forms of **public key** cryptography.
 
-The **public key** can be any number which meets the following criteria:
+A **public key** is actually two numbers. Here's how you can generate one:
 
-- It is chosen using a random source of information so that it is unpredictable.
-- It is the product of two numbers, A * B = AB, and A and B are both **prime** numbers (each only divisible by itself and 1).
-- This product AB is a large number and therefore has many digits.
-- A and B are used as private keys and are the only **factors** of the public key AB.
+- Randomly pick three prime numbers, that couldn't be predicted.
+- The prime numbers should be large numbers, with lots of digits.
+- The first part of the **public key**  is simply the product of the two larger prime numbers.
+- The second part of the **public key** is the third and smaller prime.
 
 We can see how this works in practice as follows:
 
-Suppose we ignore the requirement for the **public key** to be a large number for now and use small randomly chosen **prime** numbers, A=2 and B=5. This makes the **public key** AB = 2 * 5 = 10. It is easy to work out that A=2 and B=5 are the only possible **factors** of 10.
+Suppose we ignore the requirement for the **public key** to be a large number for now and use small randomly chosen **prime** numbers, A=7 and B=11 and C=13. This makes the first part of the **public key** BC = 11 * 13 = 143.
+The second part of the **public key** is just A, so in this case 7.
+So the **public key** in it's entirity is 143, 7
 
-If we use A=2 and B=5 as the **private keys**, AB = 10 becomes the **public key**. Let's assume Alice uses A=2 as her **private key** and Bob uses B=5 as his.
+It's really easy to work out that 11 * 13 is 143, but not so easy to work out which two prime numbers are.
 
-Now imagine an attacker intercepts the message sent from Bob to Alice. The attacker can find out that the **public key** was 10 because it will need to be sent along with the encrypted message, and the attacker may even know that the **private keys** are the **factors** of the **public key**.
+Working out the private key is a little more complicated. It uses a little more complicated maths on the prime numbers to calculate. In this case, the private key ends up being 143, 103. If you'd like to know how this was generated then have a look at the section below.
 
-So from the attacker's point of view, to break the cryptography they will need to find A and B by finding the factors of the **public key**, AB = 10:
+[[[generic-python-generate-encryption-keys]]]
+
+Now imagine an attacker intercepts the message sent from Bob to Alice. The attacker can find out that the **public key** was `143, 7`, as it was never sent securely, but the attacker needs to know the private key to decrypt the message.
+
+To do this the attacker will need to know which two prime numbers when multiplied together make `143`
 
 ```
-10 = A * B
+143 = A * B
 ```
 
-Because we have chosen small value **private keys**, A=2 and B=5, in this example, it is very easy for the attacker to figure out what these **private keys** are. All they have to do is multiply all possible values of `A` and `B` and see which multiplication results in the value 10. In this example, the attacker could probably even do it in their head!
+Because we have chosen small primes A=11 and B=13, in this example, it is very easy for the attacker to figure out what the **private key** would be. All they have to do is multiply all possible values of `A` and `B` and see which multiplication results in the value `143`. In this example, the attacker could probably even do it in their head!
 
-However, if the **public key** were a larger number, it would be considerably more difficult to work out the **factors**. Essentially, this is what protects the message: a hard maths problem.
+However, if the primes were a larger number, it would be considerably more difficult to work out the **factors**. Essentially, this is what protects the message: a hard maths problem.
 
-## Example: Choosing public keys to use with the Caesar Cipher
-The Caesar Cipher has 25 possible keys which represent the number of places each letter of the alphabet is transposed to generate the cipher text. Of these,
-the following numbers are prime (only divisible by itself and 1).
+## Example: Encrypting and Decrypting with public and private keys
 
-- [ 2, 5 ]
-- [ 7, 11 ]
-- [ 13, 17 ]
-- [ 19, 23 ]
+The encryption and decryption process with the public and private keys is not too complicated.
 
-We have put these into pairs to illustrate four possible private key combinations which could be used with the Caesar Cipher. Supposing we chose the first pair in this list, `[2, 5]`, we would calculate the public key by multiplying the two primes together - `2 * 5 = 10`. The public key for this pair is 10.
+Bob has Alices' public key, and wants to send her a simple message - "Hello".
 
-The two private keys of 2 and 5 are held by Alice and Bob. Alice can encrypt a message with her private key, and send the public key with the message to Bob. Bob then uses the combination of the public key and his private key to work out the key Alice used to encrypt her message - `10 / 5 = 2`. Bob can then decrypt the message. You can try this out in the interactive example below.
+The first thing that Bob needs to do is to turn the string `"Hello"` into an integer.
 
-<iframe src="https://trinket.io/embed/python/bf71e29704" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+```python
+import binascii
+message = b"Hello"
+x = binascii.hexlify(message)
+int(x, 16)
+```
 
-[Download the code](resources/pkc_caesar.py)
+This gives a value of 
 
-Of course, nobody would actually use public key cryptography with the Caesar Cipher - it would be extremely easy for any attacker to work out the factors and therefore the keys used, even without the help of a computer!

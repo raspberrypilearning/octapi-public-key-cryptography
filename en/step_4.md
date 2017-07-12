@@ -1,15 +1,18 @@
 # How can a key be public?
 
-When you use the Caesar Cipher, it is crucial that the key remains secret. A public key cryptographic system consists of a **public key** and a matched but non-identical pair of **private keys**. The private keys are known only to the participants, and each participant holds one of them. The public key is created using the matched pair of private keys, and can be known by anyone.
+When you use the Caesar Cipher, it is crucial that the key remains secret. This is because it is a form of symmetric cryptography, meaning that the same key is used to encrypt and decrypt messages.
+
+A public key cryptographic system consists of a **public key** a **private key**. The private key is only known to the receiver of the encrypted message. The public key can be provided to anyone who wants to send an encrypted message to the person who generated the keys.
 
 So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean they can break the encryption?
 
 Here's how it works:
 
-- Alice and Bob agree to use a public key cryptographic system and generate one private key each (A and B), as well as a public key (AB) which is created by multiplying A and B (A * B).
-- Bob sends Alice the public key AB.
-- Alice receives the public key AB, and she knows this public key corresponds to her private key A. Alice encrypts her message with her private key A and sends it to Bob.
-- Bob receives Alice's encrypted message. He has the public key AB and his private key B. Bob knows that AB = A * B, so he can work out A (by calculating A = AB / B) and decrypt the message from Alice.
+- Alice wants to receive encrypted messages from Bob, and they agree on a cryptographic system.
+- Alice generates a private key and a public key, and sends the public key off to Bob. She doesn't care if anyone else knows the public key, as it can only be used to encrtypt messages.
+- Bob uses Alice's public key to encrypt a message. He can send this to Alice. It doesn't matter if anyone else receives the encrypted message, as it can only be decrypted by Alice's private key, which she keeps safe.
+- When Alice receives the message, she can use her private key to decrypt it, and read the message Bob sent.
+- If Alice now want to reply to Bob, then Bob needs to generate his own private and public keys. He can then send hsi own public key to Eve, and she can use it to securely encrypt messages to Bob.
 
 ### Test your understanding
 
@@ -25,18 +28,6 @@ Bob's and Alice's private keys are different. The private key used to perform th
 
 --- /collapse ---
 
-**Why don't Alice and Bob only use their private key?**
-
-
---- collapse ----
----
-title: Answer
----
-
-Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, it would not be unlockable by Bob's private key. Bob needs both his key and the public key to be able to decrypt the message.
-
---- /collapse ---
-
 **Why is the public key even needed?**
 
 
@@ -44,6 +35,6 @@ Alice's key and Bob's key are not the same. If Alice used her private key to enc
 ---
 title: Answer
 ---
-Alice encrypts the message with her private key to prove she is the sender. Bob reads the message using his private key, which is the only way of decrypting the message, thus proving he is the intended recipient. This proof of identity, also called authentication, is only possible with the addition of a shared public key.
+A public key stops the problem of secure key exchange. If Alice and Bob were using a symmetric encryption algorithm, such as the Caesar Cypher, how could they securely tell each other what they key was, without actually meeting in person and whispering it? By using a public key, it doesn't matter who knows how to encrypt a message, as only the private key can decrypt it.
 
 --- /collapse ---
