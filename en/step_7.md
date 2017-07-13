@@ -6,15 +6,15 @@ Generating a very large number to use as a public key with exactly two factors m
 
 ![How not to do it](images/how-not-to-do-it.png)
 
-The problem becomes much easier to solve if you approach it by first choosing two factors as private keys and then multiplying them together to make the public key. The two chosen factors must be **prime numbers**, because then they themselves have no factors. This guarantees that there is exactly one solution to the problem of finding the public key - the only way to do it is by multiplying these two prime numbers together.
+The problem becomes much easier to solve if you approach it by first choosing two prime numbers as factors and then multiplying them together to make the public key. The two chosen factors must be **prime numbers**, because then they themselves have no factors. This guarantees that there is exactly one solution to the problem of finding the public key - the only way to do it is by multiplying these two prime numbers together.
 
 ![Creating a public key](images/creating-public-key.png)
 
-To reiterate, in order to generate the public key, two prime numbers A and B need to be selected as the private keys. The public key is the product of the two - AB = A * B. This is called a **semiprime** - the product of two prime numbers.
+To reiterate, in order to generate the public key, two prime numbers A and B need to be selected. The public key is the product of the two - AB = A * B. This is called a **semiprime** - the product of two prime numbers.
 
-Generating two private key primes to create a semiprime public key is much more straightforward than factoring a semiprime to find out the original two prime numbers. You can run [this program](resources/semi_prime_standalone.py) which does exactly this - you might want to use it to generate some private keys so that you can test them on the OctaPi later.
+Generating two primes to create a semiprime public key is much more straightforward than factoring a semiprime to find out the original two prime numbers. You can run [this program](resources/semi_prime_standalone.py) which does exactly this - you might want to use it to generate some primes so that you can test them on the OctaPi later.
 
-### Can I just choose my favourite prime number as my private key?
+### Can I just choose my favourite prime number?
 
 No. It is important that the prime numbers are _randomly chosen_ - and randomness is something human beings are very bad at! In fact, many weaknesses in encryption are caused by the behaviour of human beings rather than the failure of technology. Let's investigate why randomness in a computer system (known as *entropy*) is important.
 
