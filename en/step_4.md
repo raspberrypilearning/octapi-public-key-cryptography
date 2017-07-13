@@ -23,7 +23,7 @@ Here's how it works:
 title: Answer
 ---
 
-Bob's and Alice's use different keys. The public key used to perform the encryption is not the same as the private key held by the person decrypting the information.
+Bob and Alice use different keys. The public key used to perform the encryption is not the same as the private key held by the person decrypting the information.
 
 --- /collapse ---
 
