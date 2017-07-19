@@ -11,6 +11,8 @@ Here's how it works:
 - Alice receives the public key AB, encrypts her message with this key and sends it to Bob.
 - Bob receives Alice's encrypted message. He has both the public key AB and his private key so he can decrypt the message from Alice.
 
+Similarly, if Alice wishes to send Bob a message, she can generate her own private and public keys.
+
 ### Test your understanding
 
 **Why is this an asymmetric encryption algorithm?**
