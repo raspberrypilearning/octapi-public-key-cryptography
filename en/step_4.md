@@ -1,6 +1,6 @@
 # How can a key be public?
 
-When you use the Caesar Cipher, it is crucial that the key remains secret. A public key cryptographic system consists of a **public key** and a matched but non-identical pair of **private keys**. The private keys are known only to the participants, and each participant holds one of them. The public key is created using the matched pair of private keys, and can be known by anyone.
+When you use the Caesar Cipher, it is crucial that the key remains secret. A public key cryptographic system consists of a **public key** and a matched but non-identical pair of **private keys**. The private keys are known only to one participant. The public key is created using the matched pair of private keys, and can be known by anyone.
 
 So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean they can break the encryption?
 
@@ -32,6 +32,6 @@ The key used to perform the encryption is not the same as the private key held b
 ---
 title: Answer
 ---
-Anyone can send Bob a message using his public key. Bob reads the message using his private key, which is the only way of decrypting the message, meaning that only the intended recipient can read the message. 
+Anyone can send Bob a message using his public key. Bob reads the message using his private key, which is the only way of decrypting the message, meaning that only the intended recipient can read the message.
 
 --- /collapse ---
