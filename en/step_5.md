@@ -1,7 +1,5 @@
 # How are public and private keys chosen?
 
-Using public key cryptography is like signing a message with your own __digital signature__. Not only does it prevent unauthorised people from reading your message, it proves that the message originates from the person who claims to have sent it.
-
 The **public key** can be any number which meets the following criteria:
 
 - It is chosen using a random source of information so that it is unpredictable.
@@ -13,9 +11,9 @@ We can see how this works in practice as follows:
 
 Suppose we ignore the requirement for the **public key** to be a large number for now and use small randomly chosen **prime** numbers, A=2 and B=5. This makes the **public key** AB = 2 * 5 = 10. It is easy to work out that A=2 and B=5 are the only possible **factors** of 10.
 
-If we use A=2 and B=5 as the **private keys**, AB = 10 becomes the **public key**. Let's assume Alice uses A=2 as her **private key** and Bob uses B=5 as his.
+If we use A=2 and B=5 as the **private keys**, AB = 10 becomes the **public key**.
 
-Now imagine an attacker intercepts the message sent from Bob to Alice. The attacker can find out that the **public key** was 10 because it will need to be sent along with the encrypted message, and the attacker may even know that the **private keys** are the **factors** of the **public key**.
+Now imagine an attacker intercepts the message sent from Alice to Bob. The attacker can find out that the **public key** was 10 because it will need to be sent along with the encrypted message, and the attacker may even know that the **private keys** are the **factors** of the **public key**.
 
 So from the attacker's point of view, to break the cryptography they will need to find A and B by finding the factors of the **public key**, AB = 10:
 
@@ -38,7 +36,7 @@ the following numbers are prime (only divisible by itself and 1).
 
 We have put these into pairs to illustrate four possible private key combinations which could be used with the Caesar Cipher. Supposing we chose the first pair in this list, `[2, 5]`, we would calculate the public key by multiplying the two primes together - `2 * 5 = 10`. The public key for this pair is 10.
 
-The two private keys of 2 and 5 are held by Alice and Bob. Alice can encrypt a message with her private key, and send the public key with the message to Bob. Bob then uses the combination of the public key and his private key to work out the key Alice used to encrypt her message - `10 / 5 = 2`. Bob can then decrypt the message. You can try this out in the interactive example below.
+The two private keys of 2 and 5 are held by Bob. Alice can encrypt a message with the public key, and send the message to Bob. Bob then uses the combination of the public key and his private key to decrypt the message - `10 / 5 = 2`. You can try this out in the interactive example below.
 
 <iframe src="https://trinket.io/embed/python/bf71e29704" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
