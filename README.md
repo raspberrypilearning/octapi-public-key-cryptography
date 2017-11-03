@@ -16,6 +16,7 @@ If you are interested in knowing more about the topic, have a look at Applied Cr
 OctaPi: Public Key Cryptography by GCHQ and the Raspberry Pi Foundation is licensed under a Creative Commons Attribution 4.0 International Licence.
 Based on a work at https://github.com/raspberrypilearning/rpi-python-octapi-public-key-cryptography
 
-Code and scripts
+#### Code and scripts
 Copyright: [Crown Copyright](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/)
+
 License: [Apache 2](https://www.apache.org/licenses/LICENSE-2.0)
