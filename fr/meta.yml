@@ -1,5 +1,5 @@
 ---
-title: 'OctaPi: public key cryptography'
+title: "OctaPi: public key cryptography"
 hero_image: images/banner.png
 description: Learn about the concepts behind public key cryptography
 theme: violet
@@ -8,7 +8,7 @@ duration: 3
 ingredient: false
 copyedit: true
 curriculum: maker, design-0, programming-4, phys-comp-0, manufacture-0, community-0
-interests: "art and design, nature/outside/weather, games"
+interests: "nature/outside/weather, games"
 technologies: "scratch"
 steps:
   - 
