@@ -1,6 +1,6 @@
 ## Finding prime factors on the OctaPi
 
-To complete this section of the resource, you will need to have [built an OctaPi](rpi-python-build-an-octapi).
+To complete this section of the resource, you will need to have [built an OctaPi](https://projects.raspberrypi.org/en/projects/build-an-octapi).
 
 - Download the [code for the OctaPi](resources/factor_efficient.py) and save it onto your OctaPi client machine.
 
