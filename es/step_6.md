@@ -39,52 +39,52 @@ How easy would it be to find the two **factors** using a computer program?
     \--- /hint \--- \--- hint \--- Here is some pseudo code which will help with the structure of your program:
     
     ```Python
-public_key = 28
-
-# Store the discovered factors in a list
-
-# Begin testing at 2
-test_number = 2
-
-# Loop through all numbers from 2 up until the one below the key you are testing
-while test_number < public_key:
-
-  # If the public key divides exactly into the test_number, it is a factor
-  if :
-      # Add this factor to the list
-
-  # Move on to the next test number
-
-```
-
-\--- /hint \--- \--- hint \--- [Download the solution](resources/brute_force_factor.py).
-
-```python
-public_key = 28
-
-# Store the discovered factors in this list
-factors = []
-
-# Begin testing at 2
-test_number = 2
-
-# Loop through all numbers from 2 up until the public_key number
-while test_number < public_key:
-
-  # If the public key divides exactly into the test_number, it is a factor
-  if public_key % test_number == 0:
-      factors.append(test_number)
-
-  # Move on to the next number
-  test_number += 1
-
-# Print the result
-print(factors)
-```
-
-\--- /hint \---
-
-\--- /hints \---
+    public_key = 28
+    
+    # Store the discovered factors in a list
+    
+    # Begin testing at 2
+    test_number = 2
+    
+    # Loop through all numbers from 2 up until the one below the key you are testing
+    while test_number < public_key:
+    
+      # If the public key divides exactly into the test_number, it is a factor
+      if :
+          # Add this factor to the list
+    
+      # Move on to the next test number
+    
+    ```
+    
+    \--- /hint \--- \--- hint \--- [Download the solution](resources/brute_force_factor.py).
+    
+    ```python
+    public_key = 28
+    
+    # Store the discovered factors in this list
+    factors = []
+    
+    # Begin testing at 2
+    test_number = 2
+    
+    # Loop through all numbers from 2 up until the public_key number
+    while test_number < public_key:
+    
+      # If the public key divides exactly into the test_number, it is a factor
+      if public_key % test_number == 0:
+          factors.append(test_number)
+    
+      # Move on to the next number
+      test_number += 1
+    
+    # Print the result
+    print(factors)
+    ```
+    
+    \--- /hint \---
+    
+    \--- /hints \---
 
 - Alter your program so that it takes any number the user types in and outputs all of its factors.
     
@@ -97,10 +97,10 @@ print(factors)
     At the start of your program, change the value of the variable `public_key` to be an integer input from the user.
     
     ```python
-public_key = int(input("Enter a number: "))
-```
-
-\--- /hint \--- \--- /hints \---
+    public_key = int(input("Enter a number: "))
+    ```
+    
+    \--- /hint \--- \--- /hints \---
 
 - Experiment (by trial and error) to find the largest number can you give your program before it takes a very long time or crashes.
 
@@ -111,42 +111,42 @@ public_key = int(input("Enter a number: "))
     [Download this code](resources/timer_code.py)
     
     ```python
-from time import time
-
-# Start the timer
-start = time()
-
-# Run some example code
-for i in range(1000):
-    print("Heya")
-
-# Stop the timer
-end = time()
-total = end - start
-print( str(total) + " seconds" )
-
-```
-
-\--- /hint \--- \--- hint \---
-
-```python
-from time import time
-# Choose the number you wish to find the factors of
-
-# Start the timer
-start = time()
-
-# Paste in your brute force factoring code here
-
-# Stop the timer
-end = time()
-total = end - start
-print( str(total) + " seconds" )
-
-
-```
-
-\--- /hint \--- \--- /hints \---
+    from time import time
+    
+    # Start the timer
+    start = time()
+    
+    # Run some example code
+    for i in range(1000):
+        print("Heya")
+    
+    # Stop the timer
+    end = time()
+    total = end - start
+    print( str(total) + " seconds" )
+    
+    ```
+    
+    \--- /hint \--- \--- hint \---
+    
+    ```python
+    from time import time
+    # Choose the number you wish to find the factors of
+    
+    # Start the timer
+    start = time()
+    
+    # Paste in your brute force factoring code here
+    
+    # Stop the timer
+    end = time()
+    total = end - start
+    print( str(total) + " seconds" )
+    
+    
+    ```
+    
+    \--- /hint \--- \--- /hints \---
 
 - Run your code and time how long it takes to find the factors of 3-, 5- and 7-digit numbers.
 
