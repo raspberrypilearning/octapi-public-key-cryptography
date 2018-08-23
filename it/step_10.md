@@ -1,6 +1,6 @@
 ## Finding prime factors on the OctaPi
 
-To complete this section of the resource, you will need to have [built an OctaPi](rpi-python-build-an-octapi).
+To complete this section of the resource, you will need to have [built an OctaPi](https://projects.raspberrypi.org/en/projects/build-an-octapi).
 
 - Download the [code for the OctaPi](resources/factor_efficient.py) and save it onto your OctaPi client machine.
 
@@ -13,8 +13,8 @@ To complete this section of the resource, you will need to have [built an OctaPi
 - Run the code by typing the following command. You will notice that the arguments passed to the OctaPi (`2396059349` and `1000`) are the same ones we used in the previous step - they are the semiprime we wish to find the factors of and the chunk size.
     
     ```bash
-python3 factor_efficient.py 2396059349 1000
-```
+    python3 factor_efficient.py 2396059349 1000
+    ```
 
 ### Explanation
 
