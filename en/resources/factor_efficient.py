@@ -175,7 +175,7 @@ def job_callback(job): # executed at the client
 
 # main loop
 if __name__ == '__main__':
-    import dispy, random, math, argparse, resource, threading, logging
+    import dispy, random, math, argparse, resource, threading, logging, socket
 
     # set lower and upper bounds as appropriate
     # lower_bound is at least num of cpus and upper_bound is roughly 3x lower_bound
@@ -211,7 +211,9 @@ if __name__ == '__main__':
     chunk = int ( chunk_scale * math.log(semi_prime) )
 
     pending_jobs = {}
-    cluster = dispy.JobCluster(find_factor, nodes=server_nodes, callback=job_callback, loglevel=logging.INFO)
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80)) # doesn't matter if 8.8.8.8 can't be reached
+    cluster = dispy.JobCluster(find_factor, ip_addr=s.getsockname()[0], nodes=server_nodes, callback=job_callback, loglevel=logging.INFO)
 
     print(('Finding prime factors for %i on cluster %s' % (semi_prime, server_nodes)))
 
@@ -232,6 +234,7 @@ if __name__ == '__main__':
         # this time, so put it in 'pending_jobs' only if job is pending
         if job.status == dispy.DispyJob.Created or job.status == dispy.DispyJob.Running:
             pending_jobs[i] = job
+
             # dispy.logger.info('job "%s" submitted: %s', i, len(pending_jobs))
             if len(pending_jobs) >= upper_bound:
                 while len(pending_jobs) > lower_bound:
