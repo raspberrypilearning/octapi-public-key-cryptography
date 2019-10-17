@@ -1,10 +1,84 @@
 # How can a key be public?
 
-When you use the Caesar Cipher, it is crucial that the key remains secret. A public key cryptographic system consists of a **public key** and a matched but non-identical pair of **private keys**. The private keys are known only to the participants, and each participant holds one of them. The public key is created using the matched pair of private keys, and can be known by anyone.
+When you use the Caesar Cipher, it is crucial that the key remains secret.
+
+A public key cryptographic system consists of a **public key** and a **private key**. The public key can be used to encrypt data, but only the private key can be used to decrypt that data.
+
+The private keys are known only to the participants, and each participant holds one of them.
 
 So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean they can break the encryption?
 
-Here's how it works:
+There are many different algorithms for public key cryptography. The earliest known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) which was developed in 1977, and released to the public. However, the same algorithm had actually already been developed by GCHQ mathemtaician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks) in 1973, but his work was not declassified until 1997.
+
+--- collapse ---
+---
+title: The RSA Cryptosystem
+---
+Choose three prime numbers. Let's go for 13, 17 and 19.
+Multiply the two largest numbers together. 17 x 19 = 323
+Your public key is now a combination of this product and the small prime number 323 13. You can share this with the world.
+
+To get your private key, you need to subtract 1 from your two large primes and multiply them together.
+
+```
+17 - 1 = 16
+19 - 1 = 18
+16 * 18 = 288
+```
+
+Then find a number that when multiplied by the small prime and divided by this product, gives a remainder of 1.
+
+```
+some_number * 13 ÷ 288 = some_other_number remainder 1
+```
+
+In this case that number is 133. Computers can quite easily calculate this.
+
+```
+133 * 13 = 1729
+1729 ÷ 288 = 6 remainder 1
+```
+
+You now have your private key. It's `323 133`
+
+It's important that you understand that although the maths maybe a little complicated, it's not that difficult to implement. You send you public key off over the internet, and Robert gets his copy.
+
+Robert wants to encrypt the letter q to send it to you. He converts it to a number first, using it's position in the alphabet - `17`
+
+Now he raises that number to the power of the second part of your public key.
+
+```
+17 ** 13 = 9904578032905937
+```
+Now he divides that number by the first part of your public key, and works out the remainder.
+
+```
+9904578032905937 ÷ 323 = 30664328275250 remainder 187
+```
+
+This number - `187` is now the ciphertext, that Robert can send off to you.
+
+You receive the number `187` by email. Raise it to the power of the second part of your private key.
+
+```
+187 ** 133 = 142867573740720566967281881607100347295847400907671386091157121622780454369129479664615460769905626347535899931271341842520680048730294079130102722601895364310787622375946501020768888839654428347116807175403923673347503784689653101030237682797486439417148026581600192839120518456938618487878401112343947
+```
+
+Wow, That's a big number. Now calculate the remainder when that number is divided by the first part of your private key.
+
+```142867573740720566967281881607100347295847400907671386091157121622780454369129479664615460769905626347535899931271341842520680048730294079130102722601895364310787622375946501020768888839654428347116807175403923673347503784689653101030237682797486439417148026581600192839120518456938618487878401112343947
+
+÷ 323 = 
+
+442314469785512581539161245422235995778036566832043721231550219640260682060418642693079682615153948474292406207252865372224104020193042907357701452102267201984216551240583474414661674655052564333398394342775448312722776663559110370250126302215824888785001731815323491471101026301914858467798032580608
+
+remainder 17
+```
+Notice that remainder. It's 17, which is the position of q in the alphabet. You've decrypted the ciphertext and have the plaintext that Robert sent you.
+
+--- /collapse ---
+
+Here is a simplified version of how public key cryptograph can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
 
 - Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another number `g` which is [calculated using `p`](https://en.wikipedia.org/wiki/Primitive_root_modulo_n)
 
