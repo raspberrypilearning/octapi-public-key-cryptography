@@ -6,10 +6,57 @@ So how does adding a public key __improve__ security? If anyone can find out the
 
 Here's how it works:
 
-- Alice and Bob agree to use a public key cryptographic system and generate one private key each (A and B), as well as a public key (AB) which is created by multiplying A and B (A * B).
-- Bob sends Alice the public key AB.
-- Alice receives the public key AB, and she knows this public key corresponds to her private key A. Alice encrypts her message with her private key A and sends it to Bob.
-- Bob receives Alice's encrypted message. He has the public key AB and his private key B. Bob knows that AB = A * B, so he can work out A (by calculating A = AB / B) and decrypt the message from Alice.
+- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another number `g` which is [calculated using `p`](https://en.wikipedia.org/wiki/Primitive_root_modulo_n)
+
+--- collapse ---
+---
+title: How to calculate `g`
+---
+
+--- /collapse ---
+
+- `p` and `g` can be shared publicly. A *bad actor* Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
+- Let's say that Alice and Bob agree that `p` is 23 and `g` is 5. In reality `p` would be a much larger prime number, but to keep things simple, we'll work with smaller numbers.
+- Alice and Bob now each choose a private key. This can be any integer. Alice chooses `4` and Bob chooses `3`. They both keep these numbers secret. Nobody but Alice knows she has choosen `4`, and nobody but Bob knows that he has chosen `3`.
+- Both Alice and Bob need to do a little maths now.
+
+--- collapse ---
+---
+title: Modulo operation
+---
+In computing, the modulo operation finds the remainder after division of one number by another number.
+For instance:
+
+`15 mod 4 = 3`
+
+or written another way:
+
+`15 ÷ 4 = 3 remainder 3`
+
+You can see this using multiple subtractions:
+
+```
+15 - 4 = 11
+11 - 4 = 7
+ 7 - 4 = 3
+``` 
+
+In python you can use the `%` operator to calculate modulo.
+
+```python
+15 % 4
+3
+>>>
+```
+--- /collapse ---
+
+- Alice sends Bob `5**4 % 23 = 4`
+- Bob sends Alice `5**3 % 23 = 10`
+- Alice then works out the shared secret number = `10**4 % 23 = 18`
+- Bob then also works out the shared secret number = `4**3 % 23 = 18`
+- Now Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
+- The value 18, can now be used for the shift in a Caesar Cypher, and Alice and Bob can communicate securely.
+
 
 ### Test your understanding
 
@@ -21,7 +68,7 @@ Here's how it works:
 title: Answer
 ---
 
-Bob's and Alice's private keys are different. The private key used to perform the encryption is not the same as the private key held by the person decrypting the information.
+Bob's and Alice's private keys are different. They can both generate a shared secret using their own private keys and the pubic keys,
 
 --- /collapse ---
 
