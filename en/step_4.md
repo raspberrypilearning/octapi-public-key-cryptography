@@ -14,11 +14,10 @@ There are many different algorithms for public key cryptography. The earliest kn
 ---
 title: The RSA Cryptosystem
 ---
-Choose three prime numbers. Let's go for 13, 17 and 19.
-Multiply the two largest numbers together. 17 x 19 = 323
-Your public key is now a combination of this product and the small prime number 323 13. You can share this with the world.
-
-To get your private key, you need to subtract 1 from your two large primes and multiply them together.
+- Alice chooses three prime numbers. For example - `13`, `17` and `19`.
+- She multiplies the two largest numbers together. `17 x 19 = 323`
+- Her **public key** is now a combination of this product and the small prime number `323` `13`. She can share this with anyone.
+- To get yher private key, she subtracts `1` from yher two large primes and multiply them together.
 
 ```
 17 - 1 = 16
@@ -26,47 +25,49 @@ To get your private key, you need to subtract 1 from your two large primes and m
 16 * 18 = 288
 ```
 
-Then find a number that when multiplied by the small prime and divided by this product, gives a remainder of 1.
+- Now Alice finds a number that when multiplied by the small prime and divided by this product, gives a remainder of `1`.
 
 ```
 some_number * 13 ÷ 288 = some_other_number remainder 1
 ```
 
-In this case that number is 133. Computers can quite easily calculate this.
+- In this case that number is `133`. This can be quickly calculated by a computer.
 
 ```
 133 * 13 = 1729
 1729 ÷ 288 = 6 remainder 1
 ```
 
-You now have your private key. It's `323 133`
+- She now has her private key. It's `323 133`
 
-It's important that you understand that although the maths maybe a little complicated, it's not that difficult to implement. You send you public key off over the internet, and Robert gets his copy.
+- Alice sends this public key off over the internet, and Bob gets his copy.
 
-Robert wants to encrypt the letter q to send it to you. He converts it to a number first, using it's position in the alphabet - `17`
+- Bob wants to encrypt the letter `q` to send it to Alice. He converts it to a number first, using it's position in the alphabet - `17`
 
-Now he raises that number to the power of the second part of your public key.
+- Bob raises that number to the power of the second part of Alice's public key.
 
 ```
 17 ** 13 = 9904578032905937
 ```
-Now he divides that number by the first part of your public key, and works out the remainder.
+
+- Now he divides that number by the first part of Alice's public key, and works out the remainder.
 
 ```
 9904578032905937 ÷ 323 = 30664328275250 remainder 187
 ```
 
-This number - `187` is now the ciphertext, that Robert can send off to you.
+- This number - `187` is now the ciphertext, that Bob can send to Alice.
 
-You receive the number `187` by email. Raise it to the power of the second part of your private key.
+- Alice receives the number `187`. She raises it to the power of the second part of her private key.
 
 ```
 187 ** 133 = 142867573740720566967281881607100347295847400907671386091157121622780454369129479664615460769905626347535899931271341842520680048730294079130102722601895364310787622375946501020768888839654428347116807175403923673347503784689653101030237682797486439417148026581600192839120518456938618487878401112343947
 ```
 
-Wow, That's a big number. Now calculate the remainder when that number is divided by the first part of your private key.
+- That's a big number. Now she calculates the remainder when that number is divided by the first part of her private key.
 
-```142867573740720566967281881607100347295847400907671386091157121622780454369129479664615460769905626347535899931271341842520680048730294079130102722601895364310787622375946501020768888839654428347116807175403923673347503784689653101030237682797486439417148026581600192839120518456938618487878401112343947
+```
+142867573740720566967281881607100347295847400907671386091157121622780454369129479664615460769905626347535899931271341842520680048730294079130102722601895364310787622375946501020768888839654428347116807175403923673347503784689653101030237682797486439417148026581600192839120518456938618487878401112343947
 
 ÷ 323 = 
 
@@ -74,7 +75,7 @@ Wow, That's a big number. Now calculate the remainder when that number is divide
 
 remainder 17
 ```
-Notice that remainder. It's 17, which is the position of q in the alphabet. You've decrypted the ciphertext and have the plaintext that Robert sent you.
+- Notice that remainder. It's 17, which is the position of `q` in the alphabet. Alice has decrypted the ciphertext and has the plaintext that Bob sent her.
 
 --- /collapse ---
 
