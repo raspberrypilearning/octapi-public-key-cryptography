@@ -2,9 +2,42 @@
 
 When you use the Caesar Cipher, it is crucial that the key remains secret.
 
-A public key cryptographic system consists of a **public key** and a **private key**. The public key can be used to encrypt data, but only the private key can be used to decrypt that data.
+A public key cryptographic system consists of **public keys** and **private keys**. The public keys can be used in the encryption process, but the private keys are required to decrypt the data being exchanged.
 
-The private keys are known only to the participants, and each participant holds one of them.
+The private keys need to be kept secret. If they are known by any external individual then the data can be decrypted.
+
+Public key cryptography relies heavily on modular artihmetic, which you can read about below.
+
+--- collapse ---
+---
+title: Modular Arithmetic
+---
+In computing, the modulo operation finds the remainder after division of one number by another number.
+
+For instance:
+
+`15 mod 4 = 3`
+
+or written another way:
+
+`15 ÷ 4 = 3 remainder 3`
+
+You can see this using multiple subtractions:
+
+```
+15 - 4 = 11
+11 - 4 = 7
+ 7 - 4 = 3
+``` 
+
+In python you can use the `%` operator to calculate modulo.
+
+```python
+15 % 4
+3
+>>>
+```
+--- /collapse ---
 
 So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean they can break the encryption?
 
@@ -17,7 +50,7 @@ title: The RSA Cryptosystem
 - Alice chooses three prime numbers. For example - `13`, `17` and `19`.
 - She multiplies the two largest numbers together. `17 x 19 = 323`
 - Her **public key** is now a combination of this product and the small prime number `323` `13`. She can share this with anyone.
-- To get yher private key, she subtracts `1` from yher two large primes and multiply them together.
+- To get her private key, she subtracts `1` from yher two large primes and multiply them together.
 
 ```
 17 - 1 = 16
@@ -40,7 +73,7 @@ some_number * 13 ÷ 288 = some_other_number remainder 1
 
 - She now has her private key. It's `323 133`
 
-- Alice sends this public key off over the internet, and Bob gets his copy.
+- Alice sends her public key off over the internet, and Bob gets his copy.
 
 - Bob wants to encrypt the letter `q` to send it to Alice. He converts it to a number first, using it's position in the alphabet - `17`
 
@@ -75,69 +108,27 @@ some_number * 13 ÷ 288 = some_other_number remainder 1
 
 remainder 17
 ```
-- Notice that remainder. It's 17, which is the position of `q` in the alphabet. Alice has decrypted the ciphertext and has the plaintext that Bob sent her.
+- Notice that remainder. It's `17`, which is the position of `q` in the alphabet. Alice has decrypted the ciphertext and has the plaintext that Bob sent her.
 
 --- /collapse ---
 
 Here is a simplified version of how public key cryptograph can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
 
-- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another number `g` which is [calculated using `p`](https://en.wikipedia.org/wiki/Primitive_root_modulo_n)
-
---- collapse ---
----
-title: How to calculate `g`
----
-
---- /collapse ---
-
+- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another smaller number `g`.
 - `p` and `g` can be shared publicly. A *bad actor* Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
 - Let's say that Alice and Bob agree that `p` is 23 and `g` is 5. In reality `p` would be a much larger prime number, but to keep things simple, we'll work with smaller numbers.
 - Alice and Bob now each choose a private key. This can be any integer. Alice chooses `4` and Bob chooses `3`. They both keep these numbers secret. Nobody but Alice knows she has choosen `4`, and nobody but Bob knows that he has chosen `3`.
 - Both Alice and Bob need to do a little maths now.
-
---- collapse ---
----
-title: Modulo operation
----
-In computing, the modulo operation finds the remainder after division of one number by another number.
-For instance:
-
-`15 mod 4 = 3`
-
-or written another way:
-
-`15 ÷ 4 = 3 remainder 3`
-
-You can see this using multiple subtractions:
-
-```
-15 - 4 = 11
-11 - 4 = 7
- 7 - 4 = 3
-``` 
-
-In python you can use the `%` operator to calculate modulo.
-
-```python
-15 % 4
-3
->>>
-```
---- /collapse ---
-
 - Alice sends Bob `5**4 % 23 = 4`
 - Bob sends Alice `5**3 % 23 = 10`
-- Alice then works out the shared secret number = `10**4 % 23 = 18`
-- Bob then also works out the shared secret number = `4**3 % 23 = 18`
+- Alice then works out the shared secret number using her private key. `10**4 % 23 = 18`
+- Bob then also works out the shared secret number using his private key. `4**3 % 23 = 18`
 - Now Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
-- The value 18, can now be used for the shift in a Caesar Cypher, and Alice and Bob can communicate securely.
-
+- The value `18`, can now be used for the shift in a Caesar Cypher, and Alice and Bob can communicate securely.
 
 ### Test your understanding
 
 **Why is this an asymmetric encryption algorithm?**
-
-
 --- collapse ----
 ---
 title: Answer
