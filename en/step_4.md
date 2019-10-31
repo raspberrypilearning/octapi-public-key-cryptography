@@ -2,11 +2,11 @@
 
 When you use the Caesar Cipher, it is crucial that the key remains secret.
 
-A public key cryptographic system consists of **public keys** and **private keys**. The public keys can be used in the encryption process, but the private keys are required to decrypt the data being exchanged.
+A public key cryptographic system consists of **public keys** and **private keys**. The public keys can be used in the encryption process, but the private keys are required to decrypt the data being exchanged. This is called asymmetric encryption.
 
 The private keys need to be kept secret. If they are known by any external individual then the data can be decrypted.
 
-Public key cryptography relies heavily on modular artihmetic, which you can read about below.
+Public key cryptography relies heavily on modular arithmetic, which you can read about below.
 
 --- collapse ---
 ---
@@ -45,7 +45,9 @@ In python you can use the `%` operator to calculate modulo.
 
 So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean they can break the encryption?
 
-There are many different algorithms for public key cryptography. The earliest known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)){:target="_blank"} which was developed in 1977, and released to the public. However, the same algorithm had actually already been developed by GCHQ mathemtaician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks){:target="_blank"} in 1973, but his work was not declassified until 1997.
+
+
+There are many different algorithms for public key cryptography. The earliest known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)){:target="_blank"} which was developed in 1977, and released to the public. However, the same algorithm had actually already been developed by GCHQ mathematician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks){:target="_blank"} in 1973, but his work was not declassified until 1997.
 
 --- collapse ---
 ---
@@ -53,7 +55,7 @@ title: The RSA Cryptosystem
 ---
 - Alice chooses three prime numbers. For example - `13`, `17` and `19`.
 - She multiplies the two largest numbers together. `17 x 19 = 323`
-- Her **public key** is now a combination of this product and the small prime number `323` `13`. She can share this with anyone.
+- Her **public key** is now a combination of this product `323` and the small prime number `13`. She can share this with anyone.
 - To get her private key, she subtracts `1` from her two large primes and then multiplies them together.
 
 ```
@@ -61,6 +63,8 @@ title: The RSA Cryptosystem
 19 - 1 = 18
 16 * 18 = 288
 ```
+
+- Alice's private key is `288`
 
 - Now Alice finds a number that when multiplied by the small prime and divided by this product, gives a remainder of `1`.
 
@@ -79,7 +83,7 @@ some_number * 13 ÷ 288 = some_other_number remainder 1
 
 - Alice sends her public key off over the internet, and Bob gets his copy.
 
-- Bob wants to encrypt the letter `q` to send it to Alice. He converts it to a number first, using it's position in the alphabet - `17`
+- Bob wants to encrypt the letter `q` to send it to Alice. He converts it to a number first, using its position in the alphabet - `17`
 
 - Bob raises that number to the power of the second part of Alice's public key.
 
@@ -117,11 +121,11 @@ remainder 17
 
 --- /collapse ---
 
-Here is a simplified version of how public key cryptograph can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange){:target="_blank"}
+Here is a simplified version of how public key (asymmetric) cryptography can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange){:target="_blank"}
 
-- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another [smaller number](https://en.wikipedia.org/wiki/Primitive_root_modulo_n){:target="_blank"} `g`.
+- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consists of two numbers; a large prime number `p` and another [smaller number](https://en.wikipedia.org/wiki/Primitive_root_modulo_n){:target="_blank"} `g`.
 
-- `p` and `g` can be shared publicly. A *bad actor* Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
+- `p` and `g` can be shared publicly. Alice can choose them and just send them to Bob without worrying about who can see them.  An *eavesdropper* Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
 
 - Let's say that Alice and Bob agree that `p` is 23 and `g` is 5. In reality `p` would be a much larger prime number, but to keep things simple, we'll work with smaller numbers.
 
@@ -149,7 +153,7 @@ g**3 % p
 
 - Now Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
 
-- The value `18`, can now be used for the shift in a Caesar Cypher, and Alice and Bob can communicate securely.
+- The value `18`, can now be used for the shift in a Caesar Cipher, and Alice and Bob can communicate securely.
 
 ## Test your understanding
 
@@ -173,15 +177,5 @@ title: Answer
 ---
 
 Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, it would not be unlockable by Bob's private key. Bob needs both his private key and the public key to be able to decrypt the message.
-
---- /collapse ---
-
-**Why is the public key even needed?**
-
---- collapse ---
----
-title: Answer
----
-Alice encrypts the message with her private key to prove she is the sender. Bob reads the message using his private key, which is the only way of decrypting the message, thus proving he is the intended recipient. This proof of identity, also called authentication, is only possible with the addition of a shared public key.
 
 --- /collapse ---
