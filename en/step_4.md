@@ -136,7 +136,7 @@ g**4 % p
 5**4 % 23 = 4`
 ```
 
-- Bob sends Alice 
+- Bob sends Alice `g`<sup>`3`</sup> `mod p`
 
 ```
 g**3 % 23
