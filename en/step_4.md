@@ -154,3 +154,24 @@ Bob's and Alice's private keys are different. They can both generate a shared se
 
 --- /collapse ---
 
+
+**Why don't Alice and Bob only use their private key?**
+
+--- collapse ---
+---
+title: Answer
+---
+
+Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, it would not be unlockable by Bob's private key. Bob needs both his private key and the public key to be able to decrypt the message.
+
+--- /collapse ---
+
+**Why is the public key even needed?**
+
+--- collapse ---
+---
+title: Answer
+---
+Alice encrypts the message with her private key to prove she is the sender. Bob reads the message using his private key, which is the only way of decrypting the message, thus proving he is the intended recipient. This proof of identity, also called authentication, is only possible with the addition of a shared public key.
+
+--- /collapse ---
