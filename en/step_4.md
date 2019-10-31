@@ -119,7 +119,7 @@ remainder 17
 
 Here is a simplified version of how public key cryptograph can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
 
-- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another smaller number `g`.
+- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another [smaller number](https://en.wikipedia.org/wiki/Primitive_root_modulo_n) `g`.
 
 - `p` and `g` can be shared publicly. A *bad actor* Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
 
@@ -139,7 +139,7 @@ g**4 % p
 - Bob sends Alice `g`<sup>`3`</sup> `mod p`
 
 ```
-g**3 % 23
+g**3 % p
 5**3 % 23 = 10`
 ```
 
