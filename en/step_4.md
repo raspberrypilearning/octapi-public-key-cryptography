@@ -50,7 +50,7 @@ title: The RSA Cryptosystem
 - Alice chooses three prime numbers. For example - `13`, `17` and `19`.
 - She multiplies the two largest numbers together. `17 x 19 = 323`
 - Her **public key** is now a combination of this product and the small prime number `323` `13`. She can share this with anyone.
-- To get her private key, she subtracts `1` from yher two large primes and multiply them together.
+- To get her private key, she subtracts `1` from her two large primes and then multiplies them together.
 
 ```
 17 - 1 = 16
@@ -115,15 +115,25 @@ remainder 17
 Here is a simplified version of how public key cryptograph can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
 
 - Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another smaller number `g`.
+
 - `p` and `g` can be shared publicly. A *bad actor* Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
+
 - Let's say that Alice and Bob agree that `p` is 23 and `g` is 5. In reality `p` would be a much larger prime number, but to keep things simple, we'll work with smaller numbers.
+
 - Alice and Bob now each choose a private key. This can be any integer. Alice chooses `4` and Bob chooses `3`. They both keep these numbers secret. Nobody but Alice knows she has choosen `4`, and nobody but Bob knows that he has chosen `3`.
+
 - Both Alice and Bob need to do a little maths now.
+
 - Alice sends Bob `5**4 % 23 = 4`
+
 - Bob sends Alice `5**3 % 23 = 10`
+
 - Alice then works out the shared secret number using her private key. `10**4 % 23 = 18`
+
 - Bob then also works out the shared secret number using his private key. `4**3 % 23 = 18`
+
 - Now Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
+
 - The value `18`, can now be used for the shift in a Caesar Cypher, and Alice and Bob can communicate securely.
 
 ### Test your understanding
@@ -140,18 +150,16 @@ Bob's and Alice's private keys are different. They can both generate a shared se
 
 **Why don't Alice and Bob only use their private key?**
 
-
 --- collapse ----
 ---
 title: Answer
 ---
 
-Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, it would not be unlockable by Bob's private key. Bob needs both his key and the public key to be able to decrypt the message.
+Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, it would not be unlockable by Bob's private key. Bob needs both his private key and the public key to be able to decrypt the message.
 
 --- /collapse ---
 
 **Why is the public key even needed?**
-
 
 --- collapse ----
 ---
