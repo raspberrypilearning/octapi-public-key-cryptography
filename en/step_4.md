@@ -16,11 +16,15 @@ In computing, the modulo operation finds the remainder after division of one num
 
 For instance:
 
-`15 mod 4 = 3`
+```
+15 mod 4 = 3
+```
 
 or written another way:
 
-`15 ÷ 4 = 3 remainder 3`
+```
+15 ÷ 4 = 3 remainder 3
+```
 
 You can see this using multiple subtractions:
 
@@ -108,6 +112,7 @@ some_number * 13 ÷ 288 = some_other_number remainder 1
 
 remainder 17
 ```
+
 - Notice that remainder. It's `17`, which is the position of `q` in the alphabet. Alice has decrypted the ciphertext and has the plaintext that Bob sent her.
 
 --- /collapse ---
