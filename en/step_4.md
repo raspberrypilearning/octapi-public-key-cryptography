@@ -151,7 +151,9 @@ g**3 % p
 
 - Bob then also works out the shared secret number using his private key. `4**3 % 23 = 18`
 
-- Now Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
+- Both Alice and Bob have calculated a shared *secret number* that they have worked out using the number they were sent, and their own private keys.
+
+- Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
 
 - The value `18`, can now be used for the shift in a Caesar Cipher, and Alice and Bob can communicate securely.
 
