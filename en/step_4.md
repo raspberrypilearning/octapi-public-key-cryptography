@@ -125,7 +125,7 @@ Here is a simplified version of how public key cryptograph can work, using a sys
 
 - Let's say that Alice and Bob agree that `p` is 23 and `g` is 5. In reality `p` would be a much larger prime number, but to keep things simple, we'll work with smaller numbers.
 
-- Alice and Bob now each choose a private key. This can be any integer. Alice chooses `4` and Bob chooses `3`. They both keep these numbers secret. Nobody but Alice knows she has choosen `4`, and nobody but Bob knows that he has chosen `3`.
+- Alice and Bob now each choose a private key. This can be any integer. Alice chooses `4` and Bob chooses `3`. They both keep these numbers secret. Nobody but Alice knows she has chosen `4`, and nobody but Bob knows that he has chosen `3`.
 
 - Both Alice and Bob need to do a little maths now.
 
@@ -133,14 +133,14 @@ Here is a simplified version of how public key cryptograph can work, using a sys
 
 ```
 g**4 % p
-5**4 % 23 = 4`
+5**4 % 23 = 4
 ```
 
 - Bob sends Alice `g`<sup>`3`</sup> `mod p`
 
 ```
 g**3 % p
-5**3 % 23 = 10`
+5**3 % 23 = 10
 ```
 
 - Alice then works out the shared secret number using her private key. `10**4 % 23 = 18`
