@@ -144,7 +144,7 @@ Here is a simplified version of how public key cryptograph can work, using a sys
 ### Test your understanding
 
 **Why is this an asymmetric encryption algorithm?**
---- collapse ----
+--- collapse ---
 ---
 title: Answer
 ---
@@ -155,7 +155,7 @@ Bob's and Alice's private keys are different. They can both generate a shared se
 
 **Why don't Alice and Bob only use their private key?**
 
---- collapse ----
+--- collapse ---
 ---
 title: Answer
 ---
@@ -166,7 +166,7 @@ Alice's key and Bob's key are not the same. If Alice used her private key to enc
 
 **Why is the public key even needed?**
 
---- collapse ----
+--- collapse ---
 ---
 title: Answer
 ---
