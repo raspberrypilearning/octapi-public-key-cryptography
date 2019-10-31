@@ -116,3 +116,40 @@ remainder 17
 - Notice that remainder. It's `17`, which is the position of `q` in the alphabet. Alice has decrypted the ciphertext and has the plaintext that Bob sent her.
 
 --- /collapse ---
+
+Here is a simplified version of how public key cryptograph can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
+
+- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another smaller number `g`.
+
+- `p` and `g` can be shared publicly. A *bad actor* Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
+
+- Let's say that Alice and Bob agree that `p` is 23 and `g` is 5. In reality `p` would be a much larger prime number, but to keep things simple, we'll work with smaller numbers.
+
+- Alice and Bob now each choose a private key. This can be any integer. Alice chooses `4` and Bob chooses `3`. They both keep these numbers secret. Nobody but Alice knows she has choosen `4`, and nobody but Bob knows that he has chosen `3`.
+
+- Both Alice and Bob need to do a little maths now.
+
+- Alice sends Bob `5**4 % 23 = 4`
+
+- Bob sends Alice `5**3 % 23 = 10`
+
+- Alice then works out the shared secret number using her private key. `10**4 % 23 = 18`
+
+- Bob then also works out the shared secret number using his private key. `4**3 % 23 = 18`
+
+- Now Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
+
+- The value `18`, can now be used for the shift in a Caesar Cypher, and Alice and Bob can communicate securely.
+
+### Test your understanding
+
+**Why is this an asymmetric encryption algorithm?**
+--- collapse ---
+---
+title: Answer
+---
+
+Bob's and Alice's private keys are different. They can both generate a shared secret using their own private keys and the pubic keys,
+
+--- /collapse ---
+
