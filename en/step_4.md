@@ -144,6 +144,7 @@ Here is a simplified version of how public key cryptograph can work, using a sys
 ### Test your understanding
 
 **Why is this an asymmetric encryption algorithm?**
+
 --- collapse ---
 ---
 title: Answer
