@@ -141,7 +141,7 @@ Here is a simplified version of how public key cryptograph can work, using a sys
 
 - The value `18`, can now be used for the shift in a Caesar Cypher, and Alice and Bob can communicate securely.
 
-### Test your understanding
+## Test your understanding
 
 **Why is this an asymmetric encryption algorithm?**
 
