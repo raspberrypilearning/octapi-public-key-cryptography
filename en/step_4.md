@@ -45,7 +45,7 @@ In python you can use the `%` operator to calculate modulo.
 
 So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean they can break the encryption?
 
-There are many different algorithms for public key cryptography. The earliest known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) which was developed in 1977, and released to the public. However, the same algorithm had actually already been developed by GCHQ mathemtaician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks) in 1973, but his work was not declassified until 1997.
+There are many different algorithms for public key cryptography. The earliest known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)){:target="_blank"} which was developed in 1977, and released to the public. However, the same algorithm had actually already been developed by GCHQ mathemtaician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks){:target="_blank"} in 1973, but his work was not declassified until 1997.
 
 --- collapse ---
 ---
@@ -117,9 +117,9 @@ remainder 17
 
 --- /collapse ---
 
-Here is a simplified version of how public key cryptograph can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
+Here is a simplified version of how public key cryptograph can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange){:target="_blank"}
 
-- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another [smaller number](https://en.wikipedia.org/wiki/Primitive_root_modulo_n) `g`.
+- Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consits of two numbers; a large prime number `p` and another [smaller number](https://en.wikipedia.org/wiki/Primitive_root_modulo_n){:target="_blank"} `g`.
 
 - `p` and `g` can be shared publicly. A *bad actor* Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
 
