@@ -129,9 +129,19 @@ Here is a simplified version of how public key cryptograph can work, using a sys
 
 - Both Alice and Bob need to do a little maths now.
 
-- Alice sends Bob `5**4 % 23 = 4`
+- Alice sends Bob `g`<sup>`4`</sup> `mod p`
 
-- Bob sends Alice `5**3 % 23 = 10`
+```
+g**4 % p
+5**4 % 23 = 4`
+```
+
+- Bob sends Alice 
+
+```
+g**3 % 23
+5**3 % 23 = 10`
+```
 
 - Alice then works out the shared secret number using her private key. `10**4 % 23 = 18`
 
