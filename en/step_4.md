@@ -45,9 +45,7 @@ In python you can use the `%` operator to calculate modulo.
 
 So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean they can break the encryption?
 
-
-
-There are many different algorithms for public key cryptography. The earliest known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)){:target="_blank"} which was developed in 1977, and released to the public. However, the same algorithm had actually already been developed by GCHQ mathematician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks){:target="_blank"} in 1973, but his work was not declassified until 1997.
+There are many different algorithms for public key cryptography. The earliest publically known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)){:target="_blank"} which was developed in 1977. However, the same algorithm had actually already been suggested by GCHQ cryptographer [James Ellis](https://en.wikipedia.org/wiki/James_H._Ellis){:target="_blank"} and then developed by GCHQ mathematician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks){:target="_blank"} in 1973, but his work was not declassified until 1997.
 
 --- collapse ---
 ---
@@ -121,7 +119,7 @@ remainder 17
 
 --- /collapse ---
 
-Here is a simplified version of how public key (asymmetric) cryptography can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange){:target="_blank"}
+Here is a simplified version of how public key (asymmetric) cryptography can work, using a system called the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange){:target="_blank"}. Again, this system was actually first developed within GCHQ, by [Malcolm Williamson](https://en.wikipedia.org/wiki/Malcolm_J._Williamson), but remained classified until 1997.
 
 - Alice and Bob agree to use a public key cryptographic system. They decide on a public key which consists of two numbers; a large prime number `p` and another [smaller number](https://en.wikipedia.org/wiki/Primitive_root_modulo_n){:target="_blank"} `g`.
 
@@ -135,14 +133,14 @@ Here is a simplified version of how public key (asymmetric) cryptography can wor
 
 - Alice sends Bob `g`<sup>`4`</sup> `mod p`
 
-```
+```python
 g**4 % p
 5**4 % 23 = 4
 ```
 
 - Bob sends Alice `g`<sup>`3`</sup> `mod p`
 
-```
+```python
 g**3 % p
 5**3 % 23 = 10
 ```
@@ -151,11 +149,11 @@ g**3 % p
 
 - Bob then also works out the shared secret number using his private key. `4**3 % 23 = 18`
 
-- Both Alice and Bob have calculated a shared *secret number* that they have worked out using the number they were sent, and their own private keys.
+- Both Alice and Bob have calculated a shared *secret number*, that they have worked out using the number they were sent, and their own private keys.
 
 - Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
 
-- The value `18`, can now be used for the shift in a Caesar Cipher, and Alice and Bob can communicate securely.
+- The value `18`, can now be used for the shift in a Caesar Cipher or another, more secure, cryptographic technique, and Alice and Bob can communicate securely.
 
 ## Test your understanding
 
