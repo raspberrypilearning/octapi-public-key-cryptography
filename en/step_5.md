@@ -1,47 +1,177 @@
-# How are public and private keys chosen?
+## Finding factors
 
-Using public key cryptography is like signing a message with your own __digital signature__. Not only does it prevent unauthorised people from reading your message, it proves that the message originates from the person who claims to have sent it.
+Remember that one of the criteria for a suitable public key is that it must be a number which is the product of two **prime** numbers. To put it another way, a public key has to be a number with only two **factors**, meaning dividing the number by any number besides the two factors will leave a remainder.
 
-The **public key** can be any number which meets the following criteria:
+### Test your understanding
 
-- It is chosen using a random source of information so that it is unpredictable.
-- It is the product of two numbers, A * B = AB, and A and B are both **prime** numbers (each only divisible by itself and 1).
-- This product AB is a large number and therefore has many digits.
-- A and B are used as private keys and are the only **factors** of the public key AB.
+**If you were given the number 12 and asked to find out its factors, what strategy would you take?**
 
-We can see how this works in practice as follows:
+--- collapse ---
+---
+title: Answer
+---
 
-Suppose we ignore the requirement for the **public key** to be a large number for now and use small randomly chosen **prime** numbers, A=2 and B=5. This makes the **public key** AB = 2 * 5 = 10. It is easy to work out that A=2 and B=5 are the only possible **factors** of 10.
+Try to divide 12 by all the numbers between 2 and 11, and write down which ones it is divisible by.
+--- /collapse ---
 
-If we use A=2 and B=5 as the **private keys**, AB = 10 becomes the **public key**. Let's assume Alice uses A=2 as her **private key** and Bob uses B=5 as his.
 
-Now imagine an attacker intercepts the message sent from Bob to Alice. The attacker can find out that the **public key** was 10 because it will need to be sent along with the encrypted message, and the attacker may even know that the **private keys** are the **factors** of the **public key**.
+**Does the number 12 meet the criteria of only having two factors?**
 
-So from the attacker's point of view, to break the cryptography they will need to find A and B by finding the factors of the **public key**, AB = 10:
+--- collapse ---
+---
+title: Answer
+---
 
-```
-10 = A * B
-```
+No. The number 12 can be **factorised** as 12 = 2 * 6 and 12 = 3 * 4.
+--- /collapse ---
 
-Because we have chosen small value **private keys**, A=2 and B=5, in this example, it is very easy for the attacker to figure out what these **private keys** are. All they have to do is multiply all possible values of `A` and `B` and see which multiplication results in the value 10. In this example, the attacker could probably even do it in their head!
 
-However, if the **public key** were a larger number, it would be considerably more difficult to work out the **factors**. Essentially, this is what protects the message: a hard maths problem.
+**Can you generalise your strategy for finding factors, so that if you were given the number `n` and asked to find out its factors, you could describe to someone how to do it?**
 
-## Example: Choosing public keys to use with the Caesar Cipher
-The Caesar Cipher has 25 possible keys which represent the number of places each letter of the alphabet is transposed to generate the cipher text. Of these,
-the following numbers are prime (only divisible by itself and 1).
+--- collapse ---
+---
+title: Answer
+---
 
-- [ 2, 5 ]
-- [ 7, 11 ]
-- [ 13, 17 ]
-- [ 19, 23 ]
+You may generalise your previous rule as "Try to divide n by all the numbers between 2 and n-1, and write down which ones it is divisible by." In actual fact, you don't need to test up to n-1, you can stop at √n. Why not try [this activity](https://nrich.maths.org/7520) to learn about the Sieve of Eratosthenes to see why!
+--- /collapse ---
 
-We have put these into pairs to illustrate four possible private key combinations which could be used with the Caesar Cipher. Supposing we chose the first pair in this list, `[2, 5]`, we would calculate the public key by multiplying the two primes together - `2 * 5 = 10`. The public key for this pair is 10.
+How easy would it be to find the two **factors** using a computer program?
 
-The two private keys of 2 and 5 are held by Alice and Bob. Alice can encrypt a message with her private key, and send the public key with the message to Bob. Bob then uses the combination of the public key and his private key to work out the key Alice used to encrypt her message - `10 / 5 = 2`. Bob can then decrypt the message. You can try this out in the interactive example below.
+## Programming challenge
 
-<iframe src="https://trinket.io/embed/python/bf71e29704" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+- Write a Python program that takes the number 28 and prints out all of its factors.
 
-[Download the code](resources/pkc_caesar.py)
+  --- hints ---
+  --- hint ---
+  Create a loop that checks every number between 2 and 27 to see if it is a factor of 28. You will need to use the modulo (%) operator to check whether dividing 28 by a number leaves a remainder or not.
 
-Of course, nobody would actually use public key cryptography with the Caesar Cipher - it would be extremely easy for any attacker to work out the factors and therefore the keys used, even without the help of a computer!
+  --- /hint ---
+  --- hint ---
+  Here is some pseudo code which will help with the structure of your program:
+
+  ```Python
+  public_key = 28
+
+  # Store the discovered factors in a list
+
+  # Begin testing at 2
+  test_number = 2
+
+  # Loop through all numbers from 2 up until the one below the key you are testing
+  while test_number < public_key:
+
+      # If the public key divides exactly into the test_number, it is a factor
+      if :
+          # Add this factor to the list
+
+      # Move on to the next test number
+
+  ```
+
+  --- /hint ---
+  --- hint ---
+  [Download the solution](resources/brute_force_factor.py).
+
+
+    ```python
+    public_key = 28
+
+  # Store the discovered factors in this list
+  factors = []
+
+  # Begin testing at 2
+  test_number = 2
+
+  # Loop through all numbers from 2 up until the public_key number
+  while test_number < public_key:
+
+      # If the public key divides exactly into the test_number, it is a factor
+      if public_key % test_number == 0:
+          factors.append(test_number)
+
+      # Move on to the next number
+      test_number += 1
+
+  # Print the result
+  print(factors)
+  ```
+
+  --- /hint ---
+
+  --- /hints ---
+
+
+- Alter your program so that it takes any number the user types in and outputs all of its factors.
+
+  --- hints ---
+  --- hint ---
+  Use `input()` to allow the user to type a number in, and convert the input into an integer with `int()`.
+
+  --- /hint ---
+
+  --- hint ---
+  [Download the solution](resources/brute_force_factor2.py).
+
+  At the start of your program, change the value of the variable `public_key` to be an integer input from the user.
+
+  ```python
+  public_key = int(input("Enter a number: "))
+  ```
+  --- /hint ---
+  --- /hints ---
+
+
+- Experiment (by trial and error) to find the largest number can you give your program before it takes a very long time or crashes.
+
+- Add a timer to benchmark how long your code takes to return the answer. Here is some [timer code](resources/timer_code.py), to time how long a loop takes to execute. Can you adapt this code to time how long your script takes to find the factors of a given number?
+
+  --- hints ---
+  --- hint ---
+  Here is the timer code. Add the part from this code which starts the timer **before** your brute force factoring program, and put the code which ends the timer afterwards. Don't forget to start the timer _after_ you choose a number otherwise the time you spend choosing will be added on to the total time!
+
+  [Download this code](resources/timer_code.py)
+
+    ```python
+    from time import time
+
+    # Start the timer
+    start = time()
+
+    # Run some example code
+    for i in range(1000):
+        print("Heya")
+
+    # Stop the timer
+    end = time()
+    total = end - start
+    print( str(total) + " seconds" )
+
+    ```
+
+  --- /hint ---
+  --- hint ---
+
+  ```python
+  from time import time
+  # Choose the number you wish to find the factors of
+
+  # Start the timer
+  start = time()
+
+  # Paste in your brute force factoring code here
+
+  # Stop the timer
+  end = time()
+  total = end - start
+  print( str(total) + " seconds" )
+
+
+  ```
+  --- /hint ---
+  --- /hints ---
+
+
+- Run your code and time how long it takes to find the factors of 3-, 5- and 7-digit numbers.
+
+- You could draw a graph to illustrate the relationship between the number of digits in the number and the length of time taken to find the factors.
