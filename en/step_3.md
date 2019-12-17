@@ -12,7 +12,7 @@ Public key cryptography relies heavily on modular arithmetic, which you can read
 ---
 title: Modular arithmetic
 ---
-In computing, the modulo operation finds the remainder after division of one number by another number.
+In computing, the modulo operation finds the remainder after one number is divided by another number.
 
 For instance:
 
@@ -45,7 +45,7 @@ In Python, you can use the `%` operator to calculate modulo.
 
 So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean that they can break the encryption?
 
-There are many different algorithms for public key cryptography. The earliest publicly known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)){:target="_blank"} which was developed in 1977. However, the same algorithm had actually already been suggested by GCHQ cryptographer [James Ellis](https://en.wikipedia.org/wiki/James_H._Ellis){:target="_blank"} and then been developed by GCHQ mathematician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks){:target="_blank"} in 1973, but his work was not declassified until 1997.
+There are many different algorithms for public key cryptography. The earliest publicly known example is the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)){:target="_blank"}, which was developed in 1977. However, the same algorithm had actually already been suggested by GCHQ cryptographer [James Ellis](https://en.wikipedia.org/wiki/James_H._Ellis){:target="_blank"} and then been developed by GCHQ mathematician [Clifford Cocks](https://en.wikipedia.org/wiki/Clifford_Cocks){:target="_blank"} in 1973, but his work was not declassified until 1997.
 
 --- collapse ---
 ---
@@ -103,7 +103,7 @@ some_number * 13 ÷ 288 = some_other_number remainder 1
 187 ** 133 = 142867573740720566967281881607100347295847400907671386091157121622780454369129479664615460769905626347535899931271341842520680048730294079130102722601895364310787622375946501020768888839654428347116807175403923673347503784689653101030237682797486439417148026581600192839120518456938618487878401112343947
 ```
 
-- That's a big number. Now, she calculates the remainder when that number is divided by the first part of her private key.
+- That's a big number! Now, she divides that number by the first part of her private key and calculates the remainder.
 
 ```
 142867573740720566967281881607100347295847400907671386091157121622780454369129479664615460769905626347535899931271341842520680048730294079130102722601895364310787622375946501020768888839654428347116807175403923673347503784689653101030237682797486439417148026581600192839120518456938618487878401112343947
@@ -125,7 +125,7 @@ Here is a simplified version of how public key (asymmetric) cryptography can wor
 
 - `p` and `g` can be shared publicly. Alice can choose them and just send them to Bob without worrying about who can see them. An *eavesdropper*, Eve, could know these numbers, and still not be able to decrypt Alice's and Bob's conversations.
 
-- Let's say that Alice and Bob agree that `p` is 23 and `g` is 5. In reality, `p` would be a much larger prime number, but to keep things simple, we'll work with smaller numbers.
+- Imagine that Alice and Bob agree that `p` is 23 and `g` is 5. In reality, `p` would be a much larger prime number, but to keep things simple, this example will involve smaller numbers.
 
 - Alice and Bob now each choose a private key. This can be any integer. Alice chooses `4` and Bob chooses `3`. They both keep these numbers secret. Nobody but Alice knows that she has chosen `4`, and nobody but Bob knows that he has chosen `3`.
 
@@ -149,7 +149,7 @@ g**3 % p
 
 - Bob then also works out the shared secret number using his private key: `4**3 % 23 = 18`
 
-- Both Alice and Bob have calculated a shared *secret number*, that they have worked out using the number that they were sent, and their own private keys.
+- Both Alice and Bob have calculated a shared **secret number**, which they have worked out using the number that they were sent, and their own private keys.
 
 - Alice and Bob have the shared secret `18`, and even though Eve knew the public keys, she can not work out this shared secret.
 
@@ -176,6 +176,6 @@ Bob's and Alice's private keys are different. They can both generate a shared se
 title: Answer
 ---
 
-Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, it could not be unlocked by Bob's private key. Bob needs both his private key and the public key to be able to decrypt the message.
+Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, the data could not be ecrypted with Bob's private key. Bob needs both his private key and the public key to be able to decrypt the message.
 
 --- /collapse ---
