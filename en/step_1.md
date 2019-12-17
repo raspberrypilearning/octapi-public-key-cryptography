@@ -10,7 +10,7 @@ The GCHQ mathematician James Ellis first came up with the idea in two papers: *T
 
 In 1974, another GCHQ mathematician, Clifford Cocks, described a possible implementation of the "non-secret encryption" technique using prime numbers in his paper *Note on "Non-secret Encryption"*.
 
-A third GCHQ mathematician, Malcolm Williamson, described a method of key exchange in January 1974 in his paper *Non-secret Encryption using a Finite Field"*. It is very similar to the Diffie-Hellman technique, but predates it by several years.
+A third GCHQ mathematician, Malcolm Williamson, described a method of key exchange in January 1974 in his paper *Non-secret Encryption using a Finite Field*. It is very similar to the Diffie-Hellman technique, but predates it by several years.
 
 If you are interested in knowing more about the topic, have a look at _Applied Cryptography: Protocols, Algorithms, and Source Code in C_, Bruce Schneier, Wiley (ISBN 978-1-119-09672-6). Note that the story of public key cryptography in this book predates the GCHQ announcement in 1997.
 
