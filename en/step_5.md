@@ -128,7 +128,7 @@ How easy would it be to find the two **factors** using a computer program?
 
   --- hints ---
   --- hint ---
-  Here is the timer code. Add the part of this code that starts the timer **before** your brute force factoring program, and put the code that stops the timer after it. Don't forget to start the timer _after_ you choose a number, otherwise the time that you spend choosing will be added to the total time!
+  Here is the timer code. Add the part of this code that starts the timer **before** your brute force factoring program, and put the code that stops the timer after it. Don't forget to start the timer __after__ you choose a number, otherwise the time that you spend choosing will be added to the total time!
 
   [Download this code](resources/timer_code.py)
 
