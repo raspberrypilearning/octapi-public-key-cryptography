@@ -18,7 +18,7 @@ steps:
 - title: Introduction
 - title: What is public key cryptography?
 - title: How can a key be public?
-- title: How are keys chosen?
+- title: How are public and private keys chosen?
 - title: Challenge: Finding factors
 - title: Generating a public key
 - title: Spot the weaknesses
