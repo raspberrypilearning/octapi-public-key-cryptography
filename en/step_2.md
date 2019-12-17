@@ -59,6 +59,6 @@ title: Answer
 image: images/https.png
 ---
 
-Try all possible keys (there are only 25) until you find the correct one. This is known as a brute force attack.
+Try all possible keys (there are only 25) until you find the correct one. This is known as a brute-force attack.
 
 --- /collapse ---
