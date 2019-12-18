@@ -21,7 +21,7 @@ steps:
 - title: How are public and private keys chosen?
 - title: Challenge: Finding factors
 - title: Generating a public key
-- title: Spot the weaknesses
+- title: Private keys
 - title: Finding prime factors on a single Raspberry Pi
 - title: Finding prime factors on the OctaPi
 - title: Can I hack with my OctaPi?
