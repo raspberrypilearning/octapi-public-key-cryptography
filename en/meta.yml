@@ -19,7 +19,8 @@ steps:
 - title: What is public key cryptography?
 - title: How can a key be public?
 - title: How are public and private keys chosen?
-- title: Challenge: Finding factors
+- title: "Challenge: Finding factors"
+  challenge: true
 - title: Generating a public key
 - title: Private keys
 - title: Finding prime factors on a single Raspberry Pi
