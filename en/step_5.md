@@ -26,14 +26,14 @@ No. The number 12 can be **factorised** as 12 = 2 * 6 and 12 = 3 * 4.
 --- /collapse ---
 
 
-**Can you generalise your strategy for finding factors, so that if you were given the number `n` and asked to find out its factors, you could describe to someone how to do it?**
+**Can you generalise your strategy for finding factors, so that if you were given the number n and asked to find out its factors, you could describe to someone how to do it?**
 
 --- collapse ---
 ---
 title: Answer
 ---
 
-You could generalise your previous rule as follows: "Try to divide n by all of the numbers between 2 and n-1, and write down which ones it is divisible by." In actual fact, you don't need to test up to n-1; you can stop at √n. Try [this activity](https://nrich.maths.org/7520) to learn about the Sieve of Eratosthenes to see why!
+You could generalise your previous rule as follows: "Try to divide n by all of the numbers between 2 and n-1, and write down which ones it is divisible by." In actual fact, you don't need to test up to n-1; you can stop at √n. Try [this activity](https://nrich.maths.org/7520) to learn about the Sieve of Eratosthenes to see why.
 --- /collapse ---
 
 How easy would it be to find the two **factors** using a computer program?
@@ -71,7 +71,7 @@ How easy would it be to find the two **factors** using a computer program?
 
   --- /hint ---
   --- hint ---
-  [Download the solution](resources/brute_force_factor.py).
+  [Download the solution here](resources/brute_force_factor.py).
 
 
     ```python
@@ -111,7 +111,7 @@ How easy would it be to find the two **factors** using a computer program?
   --- /hint ---
 
   --- hint ---
-  [Download the solution](resources/brute_force_factor2.py).
+  [Download the solution here](resources/brute_force_factor2.py).
 
   At the start of your program, change the value of the variable `public_key` to be an integer input from the user.
 
@@ -130,7 +130,7 @@ How easy would it be to find the two **factors** using a computer program?
   --- hint ---
   Here is the timer code. Add the part of this code that starts the timer **before** your brute-force factoring program, and put the code that stops the timer after it. Don't forget to start the timer __after__ you choose a number, otherwise the time that you spend choosing will be added to the total time!
 
-  [Download this code](resources/timer_code.py)
+  [Download this code here](resources/timer_code.py)
 
     ```python
     from time import time
