@@ -2,7 +2,7 @@
 
 As you learnt earlier, finding the factors of a number becomes more difficult the larger the number is. In this step, you will look at running a program to find prime factors of the number `2396059349` using the processing power of a single Raspberry Pi.
 
-The program that you will run in this section involves a function to test whether a number is prime. You are not expected to be able to write this code yourself, or to understand exactly how it works. However, the code is included in case you would like to investigate it more thoroughly. The 'main' part of the program begins on line 146 and should be accessible to people who have completed the previous parts of this resource. 
+The program that you will run in this section involves a function to test whether a number is prime. You are not expected to be able to write this code yourself, or to understand exactly how it works. However, the code is included in case you would like to investigate it in more detail. The 'main' part of the program begins on line 146 and should be accessible to people who have completed the previous parts of this resource. 
 
 - To download the [code for a stand-alone Raspberry Pi](resources/factor_standalone.py), right-click the link. Save it onto your Raspberry Pi.
 
@@ -12,11 +12,11 @@ The program that you will run in this section involves a function to test whethe
 
 - Click `File` > `Open` in IDLE, then browse to the code that you just saved.
 
-- Press `F5` to run the code.
+- Press <kbd>F5</kbd> to run the code.
 
-- You will be asked for the semiprime number that you would like to factor. Enter the number `2396059349` and press `Enter`.
+- You will be asked for the semiprime number that you would like to factor. Enter the number `2396059349` and press <kbd>Enter</kbd>.
 
-- You will be asked for the scale of the chunk size. Type in `1000` and press `Enter`. The search is done in 'chunks' (i.e. blocks of primes), where the size of the chunk is based on the number of digits in the semiprime, and the scale factor —  in this case, `1000`.
+- You will be asked for the scale of the chunk size. Type in `1000` and press <kbd>Enter</kbd>. The search is done in 'chunks' (i.e. blocks of primes), where the size of the chunk is based on the number of digits in the semiprime, and the scale factor —  in this case, `1000`.
 
 ### Explanation
 You will see the following results:
