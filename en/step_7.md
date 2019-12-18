@@ -31,7 +31,7 @@ title: Answer
 
 You could try to obtain this information in two ways:
 
-- Break into where Bob stores his private key, and steal it. This might involve both physical security measures (guards, CCTV, locked rooms) and electronic security measures. While it may work, it is likely that Bob will find out if you steal his key, and he and Alice will generate a different set of keys for future messages.
+- Break into where Bob stores his private key, and steal it. This might involve both physical security measures (e.g. guards, CCTV, and locked rooms) and electronic security measures. While it may work, it is likely that Bob will find out if you steal his key, and he and Alice will generate a different set of keys for future messages.
 - Try to work out both private keys by searching for the two prime factors of the public key using a program. If you succeed, Bob will not know that his key has been compromised, and you can continue to read future messages undetected.
 
 In order to obtain Bob's key by working out the prime factors of the public key, you will need to launch a **brute-force attack**. This means that you will try all of the possible solutions in turn until you find one that works.
