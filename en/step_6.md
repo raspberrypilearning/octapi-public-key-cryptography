@@ -16,7 +16,7 @@ Generating two private key primes to create a semiprime public key is much more 
 
 ### Can I just choose my favourite prime number as my private key?
 
-No. It is important that the prime numbers are __randomly chosen__ — and randomness is something that human beings are very bad at! In fact, many weaknesses in encryption are caused by the behaviour of human beings, rather than the failure of technology. In this section, you will investigate why randomness in a computer system (known as **entropy**) is important.
+No. It is important that the prime numbers are __randomly chosen__ — and randomness is something that human beings are very bad at! In fact, many weaknesses in encryption are caused by the behaviour of human beings, rather than the failure of technology. In this step, you will investigate why randomness in a computer system (known as **entropy**) is important.
 
 ### Question 1
 
