@@ -16,7 +16,7 @@ Generating two private key primes to create a semiprime public key is much more 
 
 ### Can I just choose my favourite prime number as my private key?
 
-No. It is important that the prime numbers are __randomly chosen__ — and randomness is something that human beings are very bad at! In fact, many weaknesses in encryption are caused by the behaviour of human beings, rather than the failure of technology. Let's investigate why randomness in a computer system (known as **entropy**) is important.
+No. It is important that the prime numbers are __randomly chosen__ — and randomness is something that human beings are very bad at! In fact, many weaknesses in encryption are caused by the behaviour of human beings, rather than the failure of technology. In this section, you will investigate why randomness in a computer system (known as **entropy**) is important.
 
 ### Question 1
 
@@ -40,7 +40,7 @@ If you ask Python to generate large random numbers until one is prime, is that g
 title: Answer
 ---
 
-Python's `randint` function generates numbers that appear random, but the programmer added a starting number, or **seed**. If this seed is unchanged each time the code is run, the same sequence of numbers in the same order will always be generated. Using this function to choose your primes is not cryptographically secure, because if an attacker can determine the seed that you used, they can use it to regenerate all of the "random" numbers that your code generates.
+Python's `randint` function generates numbers that appear random, but the programmer added a starting number, or **seed**. If this seed is unchanged each time the code is run, the same sequence of numbers in the same order will always be generated. Using this function to choose your primes is not cryptographically secure, because if an attacker can determine the seed that you used, they can use it to regenerate all of the 'random' numbers that your code generates.
 
 --- /collapse ---
 
@@ -59,7 +59,7 @@ So why can't you just use this function but not specify a seed?
 ---
 title: Explanation
 ---
-Although the numbers that you have generated now _appear_ to be different each time, they are still not genuinely random. This is because the algorithm used to generate the prime numbers still needs a seed — the seed still exists, we just don't know what it is! If the programmer doesn't specify one, the seed is chosen in the background, usually based on a changing value, such as the current time. This explains why each time you run the program the numbers are different and apparently random. The problem remains the same however: an attacker could still work out what the seed was, and regenerate the same random numbers that you generated with its help.
+Although the numbers that you have generated now _appear_ to be different each time, they are still not genuinely random. This is because the algorithm used to generate the prime numbers still needs a seed — the seed still exists, we just don't know what it is! If the programmer doesn't specify one, the seed is chosen in the background, usually based on a changing value, such as the current time. This explains why each time you run the program, the numbers are different and apparently random. The problem remains the same however: an attacker could still work out what the seed was, and regenerate the same random numbers that you generated with its help.
 
 If you are interested in reading more about this topic, you can research the **Mersenne Twister** algorithm, which Python uses to generate its pseudorandom numbers.
 
