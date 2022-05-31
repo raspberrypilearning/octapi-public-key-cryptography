@@ -1,4 +1,5 @@
-title: "OctaPi: public key cryptography"
+---
+title: 'OctaPi: public key cryptography'
 hero_image: images/banner.png
 description: Learn about the concepts behind public key cryptography
 theme: violet
@@ -14,15 +15,19 @@ software: python
 site_areas: projects
 version: 4
 last_tested: 2017-01-01
-steps: 
+steps:
 - title: Introduction
 - title: What is public key cryptography?
 - title: How can a key be public?
 - title: How are public and private keys chosen?
-- title: "Challenge: Finding factors"
+  completion:
+  - engaged
+- title: 'Challenge: Finding factors'
   challenge: true
 - title: Generating a public key
 - title: Private keys
 - title: Finding prime factors on a single Raspberry Pi
 - title: Finding prime factors on the OctaPi
 - title: Can I hack with my OctaPi?
+  completion:
+  - internal
