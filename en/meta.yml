@@ -28,6 +28,8 @@ steps:
 - title: Private keys
 - title: Finding prime factors on a single Raspberry Pi
 - title: Finding prime factors on the OctaPi
-- title: Can I hack with my OctaPi?
   completion:
   - internal
+- title: Can I hack with my OctaPi?
+  completion:
+  - external
