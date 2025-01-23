@@ -1,40 +1,35 @@
-# How are private keys shared?
+## Finding prime factors with a single Raspberry Pi
 
-Prior to the invention of public key cryptography, sharing of private keys needed for encryption was largely done in writing. For example, in World War II a German Enigma operator had to look up each day's settings in a key list which was established beforehand and given to each operator.
+As you learnt earlier, finding the factors of a number becomes more difficult the larger the number is. In this step, you will look at running a program to find prime factors of the number `2396059349` using the processing power of a single Raspberry Pi.
 
-![Enigma settings](images/Enigma-settings-sheet.jpg)
-*Crown Copyright 2017. Image from GCHQ archives.*
+The program that you will run in this section involves a function to test whether a number is prime. You are not expected to be able to write this code yourself, or to understand exactly how it works. However, the code is included in case you would like to investigate it in more detail. The 'main' part of the program begins on line 146 and should be accessible to people who have completed the previous parts of this resource. 
 
+- To download the [code for a stand-alone Raspberry Pi](resources/factor_standalone.py), right-click the link. Save it onto your Raspberry Pi.
 
-## Spot the weaknesses
+- Open Python 3 (IDLE).
 
-Imagine you are an adversary trying to read the encrypted message that Alice sent to Bob. You already have the message and the public key.
+[[[rpi-gui-idle-opening]]]
 
-**What information do you need to obtain to be able to decrypt the message?**
+- Click `File` > `Open` in IDLE, then browse to the code that you just saved.
 
---- collapse ---
----
-title: Answer
----
+- Press <kbd>F5</kbd> to run the code.
 
-To be able to decrypt the message, you must find out Bob's private key.
+- You will be asked for the semiprime number that you would like to factor. Enter the number `2396059349` and press <kbd>Enter</kbd>.
 
---- /collapse ---
+- You will be asked for the scale of the chunk size. Type in `1000` and press <kbd>Enter</kbd>. The search is done in 'chunks' (i.e. blocks of primes), where the size of the chunk is based on the number of digits in the semiprime, and the scale factor —  in this case, `1000`.
 
+### Explanation
+You will see the following results:
 
-**How could you try to obtain this information?**
+```python
+Attempting factors in range 48949 - 70546, chunk size 21597
+Attempting factors in range 70547 - 92144, chunk size 21597
+90373 * 26513 = 2396059349
+```
 
---- collapse ---
----
-title: Answer
----
-
-You could try to obtain this information in two ways:
-
-- Break into where Bob stores his private key and steal it. This might involve both physical security measures (guards, CCTV, locked rooms) and electronic security measures. While it may work, it is likely that Bob will find out if you steal his key and that he and Alice will generate a different set of keys for future messages.
-- Try to work out both private keys by searching for the two prime factors of the public key using a program. If you succeed, Bob will not know his key has been compromised and you can continue to read future messages undetected. As a bonus, this method also finds Alice's key, so you will be able to read messages sent by Bob to Alice as well.
-
-In order to obtain Bob's key by working out the prime factors of the public key, you will need to launch a **brute-force attack**. This means you will try all of the possible solutions in turn until you find one which works.
-
-
---- /collapse ---
+- The code contains a function that searches for a factor.
+- We only want to test prime numbers, so a lot of the code is devoted to **primality tests**, which work out whether a number is prime or not.
+ - The factor search starts at the **square root** of the public key. This is because the factors are likely to have a roughly similar number of digits as the square root. Remember that when you select prime numbers to use as private keys, it is important that each has roughly the same number of digits as the other. For example, if the two prime numbers chosen to make up a key were `15485863` and `17`, they would not share equal security strength.
+- The program will take each chunk one at a time and search for a matching pair of prime factors.
+- This search happens in chunks to mimic the way that the OctaPi will approach the problem when running the searches in parallel across several processors.
+- When the two factors are found, the result is printed. In this case, the factors are `90373` and `26513`, which would be the private keys to the original semiprime public key `2396059349`.

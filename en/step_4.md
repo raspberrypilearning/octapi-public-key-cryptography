@@ -1,49 +1,28 @@
-# How can a key be public?
+# How are public and private keys chosen?
 
-When you use the Caesar Cipher, it is crucial that the key remains secret. A public key cryptographic system consists of a **public key** and a matched but non-identical pair of **private keys**. The private keys are known only to the participants, and each participant holds one of them. The public key is created using the matched pair of private keys, and can be known by anyone.
+Using public key cryptography is like signing a message with your own __digital signature__. Not only does it prevent unauthorised people from reading your message, it proves that the message originates from the person who claims to have sent it.
 
-So how does adding a public key __improve__ security? If anyone can find out the public key, does this mean they can break the encryption?
+A **public key** can be any number that meets the following criteria:
 
-Here's how it works:
+- It is chosen using a random source of information so that it is unpredictable
+- In part, it is the product of two numbers, A * B = AB, where A and B are both **prime** numbers (each only divisible by itself and 1)
+- This product AB is a large number and therefore has many digits
+- A and B are also used to generate a private key and are the only **factors** of the public key AB
 
-- Alice and Bob agree to use a public key cryptographic system and generate one private key each (A and B), as well as a public key (AB) which is created by multiplying A and B (A * B).
-- Bob sends Alice the public key AB.
-- Alice receives the public key AB, and she knows this public key corresponds to her private key A. Alice encrypts her message with her private key A and sends it to Bob.
-- Bob receives Alice's encrypted message. He has the public key AB and his private key B. Bob knows that AB = A * B, so he can work out A (by calculating A = AB / B) and decrypt the message from Alice.
+You can see how this works in practice as follows:
 
-### Test your understanding
+Suppose that the programmer ignores the requirement for the **public key** to be a large number for now and uses small randomly chosen **prime** numbers, A=2 and B=5. This makes the **public key** AB = 2 * 5 = 10. It is easy to work out that A=2 and B=5 are the only possible **factors** of 10.
 
-**Why is this an asymmetric encryption algorithm?**
+The programmer can use A=2 and B=5 as the **private keys**.
 
+Now, imagine that an attacker intercepts the message sent from Bob to Alice. The attacker knows that the **public key** is 10.
 
---- collapse ----
----
-title: Answer
----
+So from the attacker's point of view, to break the cryptography, they will need to find A and B by finding the factors of the **public key**, AB = 10:
 
-Bob's and Alice's private keys are different. The private key used to perform the encryption is not the same as the private key held by the person decrypting the information.
+```
+10 = A * B
+```
 
---- /collapse ---
+Because the programmer has chosen **private keys** with small values, A=2 and B=5, it is very easy for the attacker to work out what these **private keys** are. All they have to do is multiply all possible values of `A` and `B` and see which multiplication results in the value 10. In this example, the attacker could probably even do it in their head!
 
-**Why don't Alice and Bob only use their private key?**
-
-
---- collapse ----
----
-title: Answer
----
-
-Alice's key and Bob's key are not the same. If Alice used her private key to encrypt the data without the existence of a shared public key, it would not be unlockable by Bob's private key. Bob needs both his key and the public key to be able to decrypt the message.
-
---- /collapse ---
-
-**Why is the public key even needed?**
-
-
---- collapse ----
----
-title: Answer
----
-Alice encrypts the message with her private key to prove she is the sender. Bob reads the message using his private key, which is the only way of decrypting the message, thus proving he is the intended recipient. This proof of identity, also called authentication, is only possible with the addition of a shared public key.
-
---- /collapse ---
+However, if the **public key** were a larger number, it would be considerably more difficult to work out the **factors**. Essentially, this is what protects the message: a difficult maths problem.

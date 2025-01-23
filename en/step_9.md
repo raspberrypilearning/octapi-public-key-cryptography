@@ -1,35 +1,25 @@
-## Finding prime factors with a single Raspberry Pi
+## Finding prime factors on the OctaPi
 
-As you already learned, finding the factors of a number becomes more difficult the larger the number is. Let's look at running a program to find prime factors of the number `2396059349` using the processing power of a single Raspberry Pi.
+To complete this section of the resource, you will need to have [built an OctaPi](rpi-python-build-an-octapi).
 
-The program you will run in this section involves a function to test whether a number is prime. We do not expect you to be able to write this code yourself, or to understand exactly how it works. However, we have included the code in case you would like to investigate it more thoroughly. The "main" part of the program begins on line 146 and should be accessible to people who have completed the previous parts of this resource. 
+- Download the [code for the OctaPi](resources/factor_efficient.py) and save it onto your OctaPi client machine.
 
-- Download the [code for a stand-alone Raspberry Pi](resources/factor_standalone.py) by right-clicking the link. Save it onto your Raspberry Pi.
+- When your OctaPi, the OctaPi client machine, and the wireless router are fully powered up and connected, open a terminal on the OctaPi client machine.
 
-- Open Python 3 (IDLE)
+    ![Open a terminal](images/terminal.png)
 
-[[[rpi-gui-idle-opening]]]
+- Change to the directory where you saved the code using the `cd` command.
 
-- Click `File` > `Open` in IDLE, then browse to the code you just saved
+- Type the following command to run the code. You will notice that the arguments passed to the OctaPi (`2396059349` and `1000`) are the same ones that were used in the previous step — they are the semiprime that you are looking to find the factors of, and the chunk size.
 
-- Press `F5` to run the code
-
-- You will be asked for the semiprime number you would like to factor. Enter the number `2396059349` and press `Enter`.
-
-- You will be asked for the scale of the chunk size. Type in `1000` and press `Enter`. The search is done in "chunks" (i.e. blocks of primes), where the size of the chunk is based on the number of digits in the semiprime, and the scale factor, in this case `1000`.
+    ```bash
+    python3 factor_efficient.py 2396059349 1000
+    ```
 
 ### Explanation
-You will see the following results:
 
-```python
-Attempting factors in range 48949 - 70546, chunk size 21597
-Attempting factors in range 70547 - 92144, chunk size 21597
-90373 * 26513 = 2396059349
-```
+The OctaPi program follows the same principle as the stand-alone program when searching for the prime factors in chunks. The big difference is that **dispy** is used to distribute the chunks between the processors of the OctaPi.
 
-- The code contains a function which searches for a factor.
-- We only want to test prime numbers, so a lot of the code is devoted to **primality tests**, which figure out whether a number is prime or not.
- - The factor search starts at the **square root** of the public key. This is because the factors are likely to have a roughly similar number of digits as the square root. Remember that when selecting prime numbers to use as private keys, it is important that each has roughly the same number of digits as the other. For example, if the two prime numbers chosen to make up a key were `15485863` and `17`, they would not share equal security strength.
-- The program will take each chunk one at a time and search for a matching pair of prime factors.
-- This search happens in chunks to mimic the way the OctaPi will approach the problem when running the searches in parallel across several processors.
-- When the two factors are found, the result is printed. In this case the factors are `90373` and `26513`, which would be the private keys to the original semiprime public key `2396059349`.
+Searching through each chunk is considered a **job**. Each processor is given a job to do, and when it finishes doing that job, if the prime factors were not found, another job is fed to the processor. It is easy to see why the program runs much more quickly with multiple processors working in parallel than it does when one processor must complete the jobs one after another.
+
+You can imagine the program running on the OctaPi as though it were a team of people sorting through a big pile of letters looking for a particular letter. The letters are divided up into equally sized piles, which represent the jobs. Using the OctaPi is like having lots of people simultaneously searching through several piles of letters, whereas using a standalone processor is like having one person who must search through all of the piles one by one.

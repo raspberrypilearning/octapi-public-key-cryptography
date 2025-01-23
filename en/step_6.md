@@ -1,177 +1,72 @@
-## Finding factors
+# Generating a public key
 
-Remember that one of the criteria for a suitable public key is that it must be a number which is the product of two **prime** numbers. To put it another way, a public key has to be a number with only two **factors**, meaning dividing the number by any number besides the two factors will leave a remainder.
+So far, you have learnt that although finding the factors of small numbers is easy, it quickly becomes very difficult for large numbers, even using the power of a computer. This demonstrates how difficult maths protects encrypted messages. It explains why a good public key that creates strong cryptography needs to be a very large number. You have also learnt that a suitable public key must have __exactly__ two factors (other than itself and 1), and that this can be achieved using prime numbers as factors.
 
-### Test your understanding
+Generating a very large number to use as a public key with exactly two factors might seem difficult if you approach the problem by examining potential keys and working out whether they have two factors or not.
 
-**If you were given the number 12 and asked to find out its factors, what strategy would you take?**
+![How not to do it](images/how-not-to-do-it.png)
+
+The problem becomes much easier to solve if you approach it by first choosing two factors as private keys, and then multiplying them together to make the public key. The two chosen factors must be **prime numbers**, because they themselves have no factors. This guarantees that there is exactly one solution to the problem of finding the public key — the only way to do it is by multiplying these two prime numbers together.
+
+![Creating a public key](images/creating-public-key.png)
+
+To reiterate, in order to generate the public key, two prime numbers A and B need to be selected as the private keys. The public key is the product of the two: AB = A * B. This is called a **semiprime** — the product of two prime numbers.
+
+Generating two private key primes to create a semiprime public key is much more straightforward than factoring a semiprime to find out the original two prime numbers. You can run [this program](resources/semi_prime_standalone.py), which does exactly that. You might want to use it to generate some private keys so that you can test them on the OctaPi later.
+
+### Can I just choose my favourite prime number as my private key?
+
+No. It is important that the prime numbers are __randomly chosen__ — and randomness is something that human beings are very bad at! In fact, many weaknesses in encryption are caused by the behaviour of human beings, rather than the failure of technology. In this step, you will investigate why randomness in a computer system (known as **entropy**) is important.
+
+### Question 1
+
+You have probably used some Python code similar to this before to generate a random integer:
+
+```python
+import random
+print( random.randint(1, 10000) )
+```
+
+If you ask Python to generate large random numbers until one is prime, is that good enough to use as a private key?
+
+### Investigation
+
+<iframe src="https://trinket.io/embed/python/cb4e94f1b4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+- Press F5 to run the program, and look at the output. Then, clear the output and run the program again. What do you see?
 
 --- collapse ---
 ---
 title: Answer
 ---
 
-Try to divide 12 by all the numbers between 2 and 11, and write down which ones it is divisible by.
+Python's `randint` function generates numbers that appear random, but the programmer added a starting number, or **seed**. If this seed is unchanged each time the code is run, the same sequence of numbers in the same order will always be generated. Using this function to choose your primes is not cryptographically secure, because if an attacker can determine the seed that you used, they can use it to regenerate all of the 'random' numbers that your code generates.
+
 --- /collapse ---
 
 
-**Does the number 12 meet the criteria of only having two factors?**
+### Question 2
+
+So why can't you just use this function but not specify a seed?
+
+### Investigation
+
+- Delete the line `random.seed(12345)`.
+
+- Run the program multiple times and compare the output. What happens now?
 
 --- collapse ---
 ---
-title: Answer
+title: Explanation
 ---
+Although the numbers that you have generated now _appear_ to be different each time, they are still not genuinely random. This is because the algorithm used to generate the prime numbers still needs a seed — the seed still exists, we just don't know what it is! If the programmer doesn't specify one, the seed is chosen in the background, usually based on a changing value, such as the current time. This explains why each time you run the program, the numbers are different and apparently random. The problem remains the same however: an attacker could still work out what the seed was, and regenerate the same random numbers that you generated with its help.
 
-No. The number 12 can be **factorised** as 12 = 2 * 6 and 12 = 3 * 4.
+If you are interested in reading more about this topic, you can research the **Mersenne Twister** algorithm, which Python uses to generate its pseudorandom numbers.
+
 --- /collapse ---
 
+### How can a computer generate a random number?
 
-**Can you generalise your strategy for finding factors, so that if you were given the number `n` and asked to find out its factors, you could describe to someone how to do it?**
+Because the amount of randomness (known as **entropy**) is extremely important when choosing prime numbers to use as private keys, a public key encryption algorithm must use a cryptographically secure source of random numbers. For example, Python can use the method `os.urandom()` in the `os` library.
 
---- collapse ---
----
-title: Answer
----
-
-You may generalise your previous rule as "Try to divide n by all the numbers between 2 and n-1, and write down which ones it is divisible by." In actual fact, you don't need to test up to n-1, you can stop at √n. Why not try [this activity](https://nrich.maths.org/7520) to learn about the Sieve of Eratosthenes to see why!
---- /collapse ---
-
-How easy would it be to find the two **factors** using a computer program?
-
-## Programming challenge
-
-- Write a Python program that takes the number 28 and prints out all of its factors.
-
-  --- hints ---
-  --- hint ---
-  Create a loop that checks every number between 2 and 27 to see if it is a factor of 28. You will need to use the modulo (%) operator to check whether dividing 28 by a number leaves a remainder or not.
-
-  --- /hint ---
-  --- hint ---
-  Here is some pseudo code which will help with the structure of your program:
-
-  ```Python
-  public_key = 28
-
-  # Store the discovered factors in a list
-
-  # Begin testing at 2
-  test_number = 2
-
-  # Loop through all numbers from 2 up until the one below the key you are testing
-  while test_number < public_key:
-
-      # If the public key divides exactly into the test_number, it is a factor
-      if :
-          # Add this factor to the list
-
-      # Move on to the next test number
-
-  ```
-
-  --- /hint ---
-  --- hint ---
-  [Download the solution](resources/brute_force_factor.py).
-
-
-    ```python
-    public_key = 28
-
-  # Store the discovered factors in this list
-  factors = []
-
-  # Begin testing at 2
-  test_number = 2
-
-  # Loop through all numbers from 2 up until the public_key number
-  while test_number < public_key:
-
-      # If the public key divides exactly into the test_number, it is a factor
-      if public_key % test_number == 0:
-          factors.append(test_number)
-
-      # Move on to the next number
-      test_number += 1
-
-  # Print the result
-  print(factors)
-  ```
-
-  --- /hint ---
-
-  --- /hints ---
-
-
-- Alter your program so that it takes any number the user types in and outputs all of its factors.
-
-  --- hints ---
-  --- hint ---
-  Use `input()` to allow the user to type a number in, and convert the input into an integer with `int()`.
-
-  --- /hint ---
-
-  --- hint ---
-  [Download the solution](resources/brute_force_factor2.py).
-
-  At the start of your program, change the value of the variable `public_key` to be an integer input from the user.
-
-  ```python
-  public_key = int(input("Enter a number: "))
-  ```
-  --- /hint ---
-  --- /hints ---
-
-
-- Experiment (by trial and error) to find the largest number can you give your program before it takes a very long time or crashes.
-
-- Add a timer to benchmark how long your code takes to return the answer. Here is some [timer code](resources/timer_code.py), to time how long a loop takes to execute. Can you adapt this code to time how long your script takes to find the factors of a given number?
-
-  --- hints ---
-  --- hint ---
-  Here is the timer code. Add the part from this code which starts the timer **before** your brute force factoring program, and put the code which ends the timer afterwards. Don't forget to start the timer _after_ you choose a number otherwise the time you spend choosing will be added on to the total time!
-
-  [Download this code](resources/timer_code.py)
-
-    ```python
-    from time import time
-
-    # Start the timer
-    start = time()
-
-    # Run some example code
-    for i in range(1000):
-        print("Heya")
-
-    # Stop the timer
-    end = time()
-    total = end - start
-    print( str(total) + " seconds" )
-
-    ```
-
-  --- /hint ---
-  --- hint ---
-
-  ```python
-  from time import time
-  # Choose the number you wish to find the factors of
-
-  # Start the timer
-  start = time()
-
-  # Paste in your brute force factoring code here
-
-  # Stop the timer
-  end = time()
-  total = end - start
-  print( str(total) + " seconds" )
-
-
-  ```
-  --- /hint ---
-  --- /hints ---
-
-
-- Run your code and time how long it takes to find the factors of 3-, 5- and 7-digit numbers.
-
-- You could draw a graph to illustrate the relationship between the number of digits in the number and the length of time taken to find the factors.
+[[[generic-theory-what-is-entropy]]]
