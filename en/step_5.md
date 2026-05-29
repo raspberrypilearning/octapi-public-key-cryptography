@@ -43,34 +43,7 @@ How easy would it be to find the two **factors** using a computer program?
 - Write a Python program that takes the number 28 and prints out all of its factors.
 
   --- hints ---
-  --- hint ---
-  Create a loop that checks every number between 2 and 27 to see if it is a factor of 28. You will need to use the modulo (%) operator to check whether dividing 28 by a number leaves a remainder or not.
-
-  --- /hint ---
-  --- hint ---
-  Here is some pseudocode that will help with the structure of your program:
-
-  ```Python
-  public_key = 28
-
-  # Store the discovered factors in a list
-
-  # Begin testing at 2
-  test_number = 2
-
-  # Loop through all numbers from 2 up until the one below the key that you are testing
-  while test_number < public_key:
-
-      # If the public key divides exactly into the test_number, it is a factor
-      if :
-          # Add this factor to the list
-
-      # Move on to the next test number
-
-  ```
-
-  --- /hint ---
-  --- hint ---
+--- hint ---
   [Download the solution here](resources/brute_force_factor.py).
 
 
@@ -98,19 +71,14 @@ How easy would it be to find the two **factors** using a computer program?
   ```
 
   --- /hint ---
+--- /hints ---
 
-  --- /hints ---
 
 
 - Alter your program so that it takes any number that the user types in and outputs all of its factors.
 
   --- hints ---
-  --- hint ---
-  Use `input()` to allow the user to type a number in, and convert the input into an integer with `int()`.
-
-  --- /hint ---
-
-  --- hint ---
+--- hint ---
   [Download the solution here](resources/brute_force_factor2.py).
 
   At the start of your program, change the value of the variable `public_key` to be an integer input from the user.
@@ -119,7 +87,8 @@ How easy would it be to find the two **factors** using a computer program?
   public_key = int(input("Enter a number: "))
   ```
   --- /hint ---
-  --- /hints ---
+--- /hints ---
+
 
 
 - Experiment (by trial and error) to find the largest number that you can give your program before it takes a very long time or crashes.
@@ -127,30 +96,7 @@ How easy would it be to find the two **factors** using a computer program?
 - Add a timer to benchmark how long your code takes to return the answer. Here is some [timer code](resources/timer_code.py), to time how long a loop takes to execute. Can you adapt this code to time how long your script takes to find the factors of a given number?
 
   --- hints ---
-  --- hint ---
-  Here is the timer code. Add the part of this code that starts the timer **before** your brute-force factoring program, and put the code that stops the timer after it. Don't forget to start the timer __after__ you choose a number, otherwise the time that you spend choosing will be added to the total time!
-
-  [Download this code here](resources/timer_code.py)
-
-    ```python
-    from time import time
-
-    # Start the timer
-    start = time()
-
-    # Run some example code
-    for i in range(1000):
-        print("Heya")
-
-    # Stop the timer
-    end = time()
-    total = end - start
-    print( str(total) + " seconds" )
-
-    ```
-
-  --- /hint ---
-  --- hint ---
+--- hint ---
 
   ```python
   from time import time
@@ -169,7 +115,8 @@ How easy would it be to find the two **factors** using a computer program?
 
   ```
   --- /hint ---
-  --- /hints ---
+--- /hints ---
+
 
 
 - Run your code and time how long it takes to find the factors of 3-, 5-, and 7-digit numbers.
