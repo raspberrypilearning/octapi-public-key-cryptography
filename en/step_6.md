@@ -31,9 +31,11 @@ If you ask Python to generate large random numbers until one is prime, is that g
 
 ### Investigation
 
-<iframe src="https://trinket.io/embed/python/cb4e94f1b4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/octapi-public-key-cryptography-step-6" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-- Press F5 to run the program, and look at the output. Then, clear the output and run the program again. What do you see?
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/octapi-public-key-cryptography-step-6){:target="_blank"}
+
+- Click **Run** to run the program, and look at the output. Then run the program again. What do you see?
 
 --- collapse ---
 ---
@@ -51,7 +53,7 @@ So why can't you just use this function but not specify a seed?
 
 ### Investigation
 
-- Delete the line `random.seed(12345)`.
+- Open the program in the Code Editor using the link above, and delete the line `random.seed(12345)`.
 
 - Run the program multiple times and compare the output. What happens now?
 
