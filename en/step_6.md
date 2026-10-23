@@ -31,6 +31,19 @@ If you ask Python to generate large random numbers until one is prime, is that g
 
 ### Investigation
 
+```python
+import random
+
+random.seed(12345)
+
+# Print out a set of random numbers
+for i in range(10):
+    print( random.randint(1, 10000) )
+
+
+# Run this program multiple times and compare the output
+```
+
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/octapi-public-key-cryptography-step-6" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/octapi-public-key-cryptography-step-6){:target="_blank"}
