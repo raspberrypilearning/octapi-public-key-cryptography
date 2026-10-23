@@ -48,7 +48,7 @@ for i in range(10):
 
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/octapi-public-key-cryptography-step-6){:target="_blank"}
 
-- Click **Run** to run the program, and look at the output. Then run the program again. What do you see?
+- Click **Run** to run the program, and write down the first three numbers. Then click **Run** again and compare. What do you see?
 
 --- collapse ---
 ---
